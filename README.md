@@ -10,7 +10,7 @@ Coisinhas bem importantes:
 
 Setup
 -----
-Baixe o projeto e rode:
+Baixe o projeto e rode (demora um pouquinho viu rs):
 ```
 npm i
 ```
