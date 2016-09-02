@@ -80,6 +80,11 @@ let config = {
             'image-webpack?{progressive:true, optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}}'
           ]
         )
+      },
+
+      {
+        test: /\.ico$/,
+        loader: 'file?name=[path][name].[ext]'
       }
     ]
   },
@@ -95,7 +100,7 @@ let config = {
         removeComments: !isDevelopment,
       },
       cache: !isDevelopment,
-      template: resolve(__dirname, pkg.config.path.src, 'templates/base.html')
+      template: resolve(__dirname, pkg.config.path.src, 'templates/', pkg.config.html)
     }),
     new ExtractTextPlugin('[name]', {allChunks: true}),
     new webpack.EnvironmentPlugin(['NODE_ENV']),
