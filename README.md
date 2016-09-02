@@ -19,7 +19,11 @@ npm i
 
 Rode-o _just like that_:
 ```
-npm start
+npm run start:dev
+```
+ou
+```
+make serve
 ```
 
 Agora acesse http://localhost:3000/ para testar a parte _front_ do Spotippos e realizar seu sonho de encontrar um belo imóvel :)
