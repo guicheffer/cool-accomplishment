@@ -5,7 +5,8 @@ Resolução do teste https://github.com/VivaReal/code-challenge/blob/master/fron
 Coisinhas bem importantes:
 -------------------------
 
-- Utilizando NPM ~3.8.9
+- Utilizando **npm** _~3.8.9_
+- Utilizando **Node.js** _>=5.1.1_
 
 Setup
 -----
@@ -46,7 +47,7 @@ Observações
 
 - Primeiramente decidi utilizar as tecnologias em JS justamente pela questão da preferência e conforto em trabalhar no dia a dia com as mesmas por mais que já tenho experienciado frameworks como Angular 1/2 e Meteor.
 
-- React com Redux simplesmente me deixou apaixonado pela agilidade e simplicidade na hora de codar camadas _only-view_, tanto que venho brincado com o mesmo há 2 anos em outros projetos. *PORÉM* também já brinquei e participei de projetos utilizando Angular (só estou falando isso pq eu sei que o Viva Real [vocês aí] utilizam Angular! LOL)
+- React com Redux simplesmente me deixou apaixonado pela agilidade e simplicidade na hora de codar camadas _only-view_, tanto que venho brincado com o mesmo há 2 anos em outros projetos. **PORÉM** também já brinquei e participei de projetos utilizando Angular (só estou falando isso pq eu sei que o Viva Real [vocês aí] utilizam Angular! LOL)
 
 - Stylus? AMO como é escrito...como eu disse: pura preferência;
 
