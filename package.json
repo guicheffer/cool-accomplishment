@@ -37,7 +37,7 @@
     "prepublish": "npm stop",
     "pretest": "rimraf reports",
     "stop": "npm run clean",
-    "start": "cp src/favicon.ico build/ && npm run start:dev",
+    "start": "npm run start:build",
     "start:dev": "NODE_ENV=$npm_package_config_env_dev ./node_modules/.bin/webpack -d --inline --watch --progress",
     "start:build": "NODE_ENV=$npm_package_config_env_prod ./node_modules/.bin/webpack -p --progress",
     "test": "NODE_ENV=$npm_package_config_env_test ./node_modules/.bin/karma test",

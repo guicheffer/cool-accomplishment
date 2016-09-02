@@ -11,7 +11,7 @@ install:
 i: install
 
 dev:
-	npm start
+	npm run start:dev
 
 start: dev
 
