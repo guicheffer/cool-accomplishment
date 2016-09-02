@@ -8,8 +8,12 @@ help:
 install:
 	npm install
 
+i: install
+
 dev:
 	npm start
+
+start: dev
 
 test:
 	npm test
