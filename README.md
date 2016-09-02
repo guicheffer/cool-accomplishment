@@ -10,7 +10,7 @@ Coisinhas bem importantes:
 
 Setup
 -----
-Baixe o projeto e rode (demora um pouquinho viu rs):
+Baixe o projeto e rode ~~(it takes a bit of time)~~:
 ```
 npm i
 ```
@@ -26,11 +26,11 @@ ou
 make serve
 ```
 
-Agora acesse http://localhost:3000/ para testar a parte _front_ do Spotippos e realizar seu sonho de encontrar um belo imóvel :)
+Agora acesse http://localhost:3000/ para testar a área _front_ do Spotippos e realizar seu sonho de encontrar um belo imóvel :)
 
-Se você deseja apenas visualizar o _site_ funcionando, entre em: https://spotippos-guicheffer.herokuapp.com/ ...
+Se você deseja apenas visualizar a cara do _site_ funcionando, entre em: https://spotippos-guicheffer.herokuapp.com/ ...
 
-...ele foi compilado utilizando o seguinte comando(que se rodado, ele compilará os arquivos e dependências em *js* e *css* diretamente pra prod):
+...ele foi compilado utilizando o seguinte comando(que se rodado, ele compilará os arquivos e dependências em *js* e *css* diretamente pra prod e servirá a pasta `_build/_`):
 ```
 make deploy
 ```
