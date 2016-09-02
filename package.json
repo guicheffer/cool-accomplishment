@@ -37,13 +37,13 @@
     "prepublish": "npm stop",
     "pretest": "rimraf reports",
     "stop": "npm run clean",
-    "start": "npm run start:build",
+    "start": "npm run start:build && node server.js",
     "start:dev": "NODE_ENV=$npm_package_config_env_dev ./node_modules/.bin/webpack -d --inline --watch --progress",
     "start:build": "NODE_ENV=$npm_package_config_env_prod ./node_modules/.bin/webpack -p --progress",
     "test": "NODE_ENV=$npm_package_config_env_test ./node_modules/.bin/karma test",
     "test:ci": "watch 'npm test' $npm_package_config_path_src"
   },
-  "main": "$npm_package_config_main",
+  "main": "$npm_package_config_base",
   "engines": {
     "node": ">=5.1.1"
   },
@@ -85,6 +85,7 @@
     "eslint-plugin-import": "^1.10.2",
     "eslint-plugin-jsx-a11y": "^1.5.5",
     "estraverse-fb": "^1.3.1",
+    "express": "~4.9.8",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.22.0",
