@@ -16,6 +16,7 @@
   "config": {
     "base": "./scripts/base.js",
     "style": "./styles/base.styl",
+    "html": "base.html",
     "host": "localhost",
     "protocol": "http://",
     "port": 3000,
