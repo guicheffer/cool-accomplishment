@@ -38,6 +38,7 @@ make deploy
 Heroku
 ------
 Se você quiser diretamente aplicar em um novo bucket no Heroku este projeto, clique aqui:
+
 <a href="https://heroku.com/deploy">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 </a>
