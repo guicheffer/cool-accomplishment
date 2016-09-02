@@ -35,6 +35,10 @@ npm test
 Observações
 -----------
 
+> “Dependendo da sua experiência e/ou das ferramentas escolhidas, você pode precisar de mais ou menos tempo para realizar o desafio.”
+
+:arrow_up: *(that explains me to take a little while. lol)* :expressionless:
+
 - Optei por utilizar as seguintes tecnologias abaixo (calma, explicarei o porquê rs)
 
 	- React.js (from facebook)
