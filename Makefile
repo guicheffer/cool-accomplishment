@@ -21,3 +21,7 @@ test:
 # Be sure on testing
 deploy: test
 	npm run start:build
+
+gource:
+	@echo "Nenhuma task 'gource' foi configurada"
+	@echo "No 'gource' task was settled up"
