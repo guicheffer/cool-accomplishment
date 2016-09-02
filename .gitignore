@@ -1,0 +1,9 @@
+#NPM
+node_modules/
+build/
+npm-debug.log
+.npmrc
+
+#Spotippos structure
+.DS_Store
+src/styles/includes/sprites/*.css
