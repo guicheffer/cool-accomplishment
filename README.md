@@ -24,7 +24,7 @@ npm start
 
 Agora acesse http://localhost:3000/ para testar a parte _front_ do Spotippos e realizar seu sonho de encontrar um belo imóvel :)
 
-Se você deseja apenas visualizar o _site_ funcionando, entre em: http://tests.guiatech.com.br/spotippos/ ...
+Se você deseja apenas visualizar o _site_ funcionando, entre em: https://spotippos-guicheffer.herokuapp.com/ ...
 
 ...ele foi compilado utilizando o seguinte comando(que se rodado, ele compilará os arquivos e dependências em *js* e *css* diretamente pra prod):
 ```
