@@ -20,9 +20,11 @@
     "host": "localhost",
     "protocol": "http://",
     "port": 3000,
+    "server": "./server.js",
     "path": {
       "src": "src/",
-      "build": "build/"
+      "build": "build/",
+      "views": "templates/"
     },
     "env": {
       "dev": "development",
@@ -31,15 +33,17 @@
     }
   },
   "scripts": {
+    "favicon": "cp src/assets/favicon.ico $npm_package_config_path_build",
     "env": "node -p \"require('./package.json').config;\"",
-    "clean": "rimraf build && mkdir build",
+    "clean": "rimraf $npm_package_config_path_build && mkdir $npm_package_config_path_build",
     "prebuild": "npm stop",
     "prepublish": "npm stop",
     "pretest": "rimraf reports",
     "stop": "npm run clean",
-    "start": "npm run start:build && node server.js",
+    "start": "npm run start:build && npm run serve:prod",
     "start:dev": "NODE_ENV=$npm_package_config_env_dev ./node_modules/.bin/webpack -d --inline --watch --progress",
     "start:build": "NODE_ENV=$npm_package_config_env_prod ./node_modules/.bin/webpack -p --progress",
+    "serve:prod": "node $npm_package_config_server",
     "test": "NODE_ENV=$npm_package_config_env_test ./node_modules/.bin/karma test",
     "test:ci": "watch 'npm test' $npm_package_config_path_src"
   },
