@@ -1,0 +1,78 @@
+/*
+ * "General style for boilerplate"
+ * cheffplate! - ./base/general
+ * https://github.com/guicheffer/cheffplate
+ * Author: Joao Guilherme (@guicheffer)
+ * Date: 07/2016
+ */
+
+/*==============================================================================
+	General Style
+  ============================================================================*/
+
+*
+	font-family $default-font-general
+	-webkit-font-smoothing antialiased
+	-moz-osx-font-smoothing grayscale
+	-moz-font-smoothing grayscale
+	-o-font-smoothing grayscale
+
+html
+	-ms-text-size-adjust 100%
+	-webkit-text-size-adjust 100%
+
+body.defaultclass
+	font-size $default-font-size-app
+	background-color $white
+	padding 0
+	margin 0
+	text-align center
+	position relative
+	overflow-x hidden !important
+
+::selection, ::-moz-selection
+	background $red
+	color $white
+
+/* .......................................
+	Usuful
+  ......................................*/
+
+.sprt
+	text-indent $text-visually-hidden
+
+.visually-hidden
+	display none !important
+
+p:first-child
+	margin-top 0
+.text-center
+	text-align center !important
+.float-left
+	float left !important
+.float-right
+	float right !important
+.no-margin-left
+	margin-left 0 !important
+.indent-right
+	text-align right !important
+.accessibility-aid
+	clear both
+	height 1px
+	width width
+	clip rect(1px, 1px, 1px, 1px)
+	overflow hidden
+	left 50%
+	position absolute !important
+	margin 0 !important
+	transform translateX(-50%)
+	&:focus
+		height auto
+		clip auto
+		z-index 50
+		top remify(20px)
+		line-height 49px
+		padding 0 10px
+		background $red
+		font-weight bold
+		text-decoration none
