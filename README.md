@@ -48,6 +48,7 @@ Observações
 	- Stylus
 	- Webpack
 	- Karma
+	- ~~CDN~~
 
 - Primeiramente decidi utilizar as tecnologias em JS justamente pela questão da preferência e conforto em trabalhar no dia a dia com as mesmas por mais que já tenho experienciado frameworks como Angular 1/2 e Meteor.
 
@@ -65,7 +66,8 @@ Observações
 
 Melhorias
 ---------
-* Testes unitários
-* Testes end-to-end
-* Testes de UI
-* Testes de stress/sobrecarga (frontend)
+* ~~Testes manuais~~ :ok_hand:
+* Testes unitários :hourglass_flowing_sand:
+* Testes end-to-end :hourglass_flowing_sand:
+* Testes de UI :hourglass_flowing_sand:
+* Testes de stress/sobrecarga (frontend) :-1:
