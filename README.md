@@ -12,6 +12,10 @@ Setup
 -----
 Baixe o projeto e rode ~~(it takes a bit of time)~~:
 ```
+make i
+```
+ou
+```
 npm i
 ```
 
@@ -19,20 +23,24 @@ npm i
 
 Rode-o _just like that_:
 ```
-npm run start:dev
+make serve
 ```
 ou
 ```
-make serve
+npm run start:dev
 ```
 
 Agora acesse http://localhost:3000/ para testar a área _front_ do Spotippos e realizar seu sonho de encontrar um belo imóvel :)
 
 Se você deseja apenas visualizar a cara do _site_ funcionando, entre em: https://spotippos-guicheffer.herokuapp.com/ ...
 
-...ele foi compilado utilizando o seguinte comando(que se rodado, ele compilará os arquivos e dependências em *js* e *css* diretamente pra prod e servirá a pasta `_build/_`):
+...ele foi compilado utilizando o seguinte comando(que se rodado, ele compilará os arquivos e dependências em *js* e *css* diretamente pra prod e servirá a pasta `build/` ):
 ```
 make deploy
+```
+ou
+```
+npm start
 ```
 
 Heroku
@@ -48,6 +56,10 @@ Testes
 
 Para rodar os testes em dev/prod:
 ```
+make test
+```
+ou
+```
 npm test
 ```
 
@@ -56,7 +68,7 @@ Observações
 
 > “Dependendo da sua experiência e/ou das ferramentas escolhidas, você pode precisar de mais ou menos tempo para realizar o desafio.”
 
-:arrow_up: *(that explains me to take a little while. lol)* :expressionless:
+:arrow_up: *that explains me to take a little while.* **_lol_**
 
 - Optei por utilizar as seguintes tecnologias abaixo (calma, explicarei o porquê rs)
 
