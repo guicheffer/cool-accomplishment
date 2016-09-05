@@ -7,11 +7,50 @@
  */
 
 /*==============================================================================
+	Local Variables
+  ============================================================================*/
+
+$height-header = 60px
+
+/*==============================================================================
 	Header
   ============================================================================*/
 
-/* .......................................
-	Grid settings
-  ......................................*/
 header
-  background purple
+  width auto
+  height auto
+
+  *[class^='nav-top-menu-']
+    height 100%
+  .nav
+    height remify($height-header)
+    background-color $header-background-color
+    position relative
+  .nav-top-menu-subtitle
+    $local-max-width = $max-sidebar-width
+
+    max-width remify($local-max-width)
+    background-color $vivareal-background-color
+    background-size 40%
+  .nav-top-menu-title
+    line-height $height-header
+    color $white
+    vertical-align middle
+    margin-left 5%
+    text-transform uppercase
+    font-size 2vw
+    font-weight normal
+
+/* .......................................
+	Media queries
+  ......................................*/
+
+@media $media-query-tablet
+  header
+    .nav-top-menu-title
+      font-size 3.5vw
+
+@media $media-query-mobile
+  header
+    .nav-top-menu-subtitle
+      background-size 50%

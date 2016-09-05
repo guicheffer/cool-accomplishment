@@ -90,6 +90,18 @@ let config = {
   },
 
   plugins: [
+    new ExtractTextPlugin('[name]', {allChunks: true}),
+    new webpack.EnvironmentPlugin(['NODE_ENV']),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.AggressiveMergingPlugin(),
+    new SpriteWebpack({
+      'source': resolve(__dirname, pkg.config.path.src, 'assets/images/spriting/'),
+      'imgPath': resolve(__dirname, pkg.config.path.src, 'assets/images/'),
+      'cssPath': resolve(__dirname, pkg.config.path.src, 'styles/includes/sprites/'),
+      'bundleMode': 'multiple',
+      'prefix': 'sprt',
+    }),
     new HtmlWebpackPlugin({
       title: pkg.name,
       inject: false,
@@ -102,18 +114,6 @@ let config = {
       cache: !isDevelopment,
       template: resolve(__dirname, pkg.config.path.src, 'templates/', pkg.config.html)
     }),
-    new ExtractTextPlugin('[name]', {allChunks: true}),
-    new webpack.EnvironmentPlugin(['NODE_ENV']),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.AggressiveMergingPlugin(),
-    new SpriteWebpack({
-      'source': resolve(__dirname, pkg.config.path.src, 'assets/images/spriting/'),
-      'imgPath': resolve(__dirname, pkg.config.path.src, 'assets/images/'),
-      'cssPath': resolve(__dirname, pkg.config.path.src, 'styles/includes/sprites/'),
-      'bundleMode': 'multiple',
-      'prefix': 'sprt',
-    })
   ].concat(
     isDevelopment
     ? [] : [

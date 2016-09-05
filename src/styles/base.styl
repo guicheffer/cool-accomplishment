@@ -24,23 +24,15 @@
 	Fonts
   ============================================================================*/
 
-// @font-face
-// 	font-family 'Dancing Script'
-// 	font-style normal
-// 	font-weight 400
-// 	src local('Dancing Script'), local('DancingScript'), url('../assets/fonts/DancingScript/dancing-script-regular.woff2') format('woff2')
-// @font-face
-// 	font-family 'Dancing Script'
-// 	font-style normal
-// 	font-weight 700
-// 	src local('Dancing Script Bold'), local('DancingScript-Bold'), url('../assets/fonts/DancingScript/dancing-script-bold.woff2') format('woff2')
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700')
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:600')
 
 
 /*==============================================================================
 	Local Variables
   ============================================================================*/
 
-$default-width-window = $default-width-window-wrapper
+$default-width-window-local-base = $default-width-window-wrapper
 
 /*==============================================================================
 	Base Style
@@ -54,17 +46,33 @@ $default-width-window = $default-width-window-wrapper
 /* .......................................
 	Common sprite
   ......................................*/
-// @import 'includes/sprites/sprite-common.css'
+@import 'includes/sprites/sprite-base.css'
+
+.sprt
+	background-repeat no-repeat
+	background-position $default-background-position
 
 /* .......................................
 	Default
-  ......................................*/
+......................................*/
+.container
+	clear both
+.container-base
+	display-flex()
+	flex-direction column
+	background-color $main-container-background-color
+
+
 .wrapper
-	background #448aa0
-	height 100vh
 	clear both
 	margin 0 auto
-	width $default-width-window
+	position relative
+	width $default-width-window-local-base
+	max-width $default-max-width-wrapper
+.wrapper-base
+	background $main-background-color
+	min-height 100vh
+	padding-top remify($one_rem * 2)
 
 /* .......................................
 	Divisor
@@ -89,27 +97,15 @@ hr, .divisor
 	Content
   ......................................*/
 
-.grid
-	outline 1px dotted
-.content
-	color $white
-	font-weight 700
-	h1
-		font-size remify(25px)
-.col
-	border 1px solid #ccc
-	background red
-	display block
-	height auto
-.img-test
-	sprite($sprt-icon-webpack-in)
-	background-color blue
+.spotippos-content
+	// padding-top remify($one_rem)
+
 
 /* .......................................
 	Footer
   ......................................*/
 
-// @import 'common/footer'
+@import 'common/footer'
 
 /* =============================================================================
    Media Customized

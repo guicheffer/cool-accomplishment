@@ -74,9 +74,10 @@ Observações
 
 	- React.js (from facebook)
 	- Redux.js (from React thing)
-	- lodash
-	- Babel [es6]
+    - lodash for objects
+	- ... w/ es6 (using babel)
 	- Stylus
+	- OOCSS
 	- Webpack
 	- Karma
 	- ~~CDN~~
@@ -85,7 +86,7 @@ Observações
 
 - React com Redux simplesmente me deixou apaixonado pela agilidade e simplicidade na hora de codar camadas _only-view_, tanto que venho brincado com o mesmo há 2 anos em outros projetos. **PORÉM** também já brinquei e participei de projetos utilizando Angular (só estou falando isso pq eu sei que o Viva Real [vocês aí] utilizam Angular! LOL)
 
-- Stylus? AMO como é escrito...como eu disse: pura preferência;
+- Stylus? AMO como é escrito...como eu disse: pura preferência; OOCSS? Comecei com a brincadeira na Folha de S. Paulo, viciei na maneira de como é escrito, apesar de preferir BEM como organização do CSS e achar que funciona melhor para compreensão.
 
 - Webpack pq é modinha. MENTIRA: a forma de como os pacotes são modularizados e compactados em um bundle realmente me convence a largar os _task runners_ e daí aprendi bastante a maneira de como o Webpack trabalha juntamente as suas rotinas e seus loaders.
 
