@@ -96,10 +96,14 @@ Observações
 
 - Adicionalmente, fiz os filtros workarem juntamente as firulas implantadas com parte do código desenvolvida para deixar o UX ainda mais agradável como no layout :)
 
-Melhorias
+Melhorias [o que não deu tempo lol]
 ---------
 * ~~Testes manuais~~ :ok_hand:
+* ~~Testes end-to-end~~ :ok_hand:
 * Testes unitários :hourglass_flowing_sand:
-* Testes end-to-end :hourglass_flowing_sand:
 * Testes de UI :hourglass_flowing_sand:
 * Testes de stress/sobrecarga (frontend) :-1:
+* Animações UI :hourglass_flowing_sand:
+* Sidebar flutuando :hourglass_flowing_sand:
+* Refatoração do core :hourglass_flowing_sand:
+* Organização das layers do container principal :hourglass_flowing_sand:
