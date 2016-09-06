@@ -2,6 +2,9 @@ import ReactDOM from 'react-dom'
 
 // import AppProductPreview from './components/ProductPreview.jsx';
 
+/*´´´´´´´´´´´´´´´´´´´´´
+	UI animation
+  ```````````````````*/
 const UI = {
   filterScroll: function(el){
     const wrapperPage = document.querySelector('.wrapper-page');
@@ -26,13 +29,13 @@ const UI = {
   function ready() {
     // const appSpotippos = document.getElementById('app-spotippos');
 
-    UI.init();
-
     // if (appProductPreviewElement !== null) {
     //   ReactDOM.render(
     //     AppProductPreview,
     //     appProductPreviewElement
     //   );
     // }
+
+    // UI.init();
   }
 })();
