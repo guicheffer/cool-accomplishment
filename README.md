@@ -107,4 +107,4 @@ Melhorias [o que não deu tempo lol]
 * Sidebar flutuando :hourglass_flowing_sand:
 * Refatoração do core :hourglass_flowing_sand:
 * Organização das layers do container principal :hourglass_flowing_sand:
-* Corrigir warnings React (Caso bem parecido: https://github.com/martyjs/marty/issues/336) :hourglass_flowing_sand:
+* ~~Corrigir warnings React (Caso bem parecido: https://github.com/martyjs/marty/issues/336)~~ :ok_hand:
