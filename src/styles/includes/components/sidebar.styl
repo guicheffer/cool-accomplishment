@@ -1,0 +1,86 @@
+/*
+ * "Spotippos Sidebar"
+ * https://github.com/guicheffer/cheffplate
+ * Author: Joao Guilherme (@guicheffer)
+ * Date: 09/2016
+ */
+
+/*==============================================================================
+  Sidebar
+  ============================================================================*/
+
+.spotippos-sidebar
+  $max-item-sidebar-height = $max-sidebar-width
+
+  max-width remify($max-item-sidebar-height)
+  background-color $sidebar-background-color
+
+  .nav-sidebar
+    $sidebar-item-margin = 15px
+
+    margin remify($sidebar-item-margin / 2)
+
+    .options
+      list-style none
+      margin-top remify($sidebar-item-margin)
+    .item
+      width 100%
+      height 8vw
+      position relative
+      border-radius remify($sidebar-item-margin / 3)
+      max-height remify($max-item-sidebar-height - $sidebar-item-margin * 2)
+      min-height remify($max-item-sidebar-height / 3)
+      margin $sidebar-item-margin 0
+
+      &.selected
+        background-color $sidebar-item-background-color
+      &:not(.selected):hover
+        background-color $sidebar-item-background-color-hover
+      &:not(.selected):active
+        background-color darken($sidebar-item-background-color-hover, $lighter-percent)
+      a
+        width 100%
+        height 100%
+        position relative
+        box-sizing border-box
+        display block
+        text-decoration none
+        text-transform uppercase
+        font-size remify(11px)
+        padding-top 80%
+      .icon
+        position absolute
+        left 50%
+        top 12%
+        transform translateX(-50%)
+
+
+/*==============================================================================
+  Media Customized
+  ============================================================================*/
+
+@media $media-query-medium-desktop-screen
+  .spotippos-sidebar
+    .nav-sidebar
+      .item
+        a
+          padding-top 65%
+        .icon
+          top 20%
+
+@media $media-query-tablet
+  .spotippos-sidebar
+    .nav-sidebar
+      .item
+        a
+          text-indent $text-visually-hidden
+
+@media $media-query-mobile
+  .spotippos-sidebar
+    .nav-sidebar
+      .item
+        height 12vw
+
+        .icon
+          top 50%
+          transform translate(-50%, -50%)

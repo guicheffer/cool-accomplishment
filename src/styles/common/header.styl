@@ -3,7 +3,7 @@
  * cheffplate! - ./base/header
  * https://github.com/guicheffer/cheffplate
  * Author: Joao Guilherme (@guicheffer)
- * Date: 07/2016
+ * Date: 09/2016
  */
 
 /*==============================================================================
@@ -17,29 +17,37 @@ $height-header = 60px
   ============================================================================*/
 
 header
-  width auto
+  width 100%
   height auto
 
-  *[class^='nav-top-menu-']
+  *[class^='nav-header-']
     height 100%
   .nav
     height remify($height-header)
     background-color $header-background-color
     position relative
-  .nav-top-menu-subtitle
+  .nav-header-subtitle
     $local-max-width = $max-sidebar-width
 
     max-width remify($local-max-width)
     background-color $vivareal-background-color
     background-size 40%
-  .nav-top-menu-title
+    position relative
+    cursor default
+
+    .icon
+      position absolute
+      top 50%
+      left 50%
+      transform translate(-50%, -50%)
+  .nav-header-title
     line-height $height-header
     color $white
     vertical-align middle
-    margin-left 5%
     text-transform uppercase
     font-size 2vw
     font-weight normal
+    padding-left 3%
 
 /* .......................................
 	Media queries
@@ -47,10 +55,15 @@ header
 
 @media $media-query-tablet
   header
-    .nav-top-menu-title
+    .nav-header-title
       font-size 3.5vw
 
 @media $media-query-mobile
   header
-    .nav-top-menu-subtitle
+    .nav-header-subtitle
       background-size 50%
+
+@media $media-query-mobile-common
+  header
+    .nav-header-title
+      font-size remify(18px)

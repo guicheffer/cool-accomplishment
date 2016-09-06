@@ -24,8 +24,8 @@
 	Fonts
   ============================================================================*/
 
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700')
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:600')
+@import 'includes/fonts/roboto+condensed'
+@import 'includes/fonts/open+sans+semibold'
 
 
 /*==============================================================================
@@ -50,7 +50,6 @@ $default-width-window-local-base = $default-width-window-wrapper
 
 .sprt
 	background-repeat no-repeat
-	background-position $default-background-position
 
 /* .......................................
 	Default
@@ -67,12 +66,13 @@ $default-width-window-local-base = $default-width-window-wrapper
 	clear both
 	margin 0 auto
 	position relative
+.wrapper-base
 	width $default-width-window-local-base
 	max-width $default-max-width-wrapper
-.wrapper-base
+	min-width $default-min-width-wrapper
+	padding-top remify($halfrem * 2)
 	background $main-background-color
 	min-height 100vh
-	padding-top remify($one_rem * 2)
 
 /* .......................................
 	Divisor
@@ -97,9 +97,26 @@ hr, .divisor
 	Content
   ......................................*/
 
-.spotippos-content
-	// padding-top remify($one_rem)
+/* ```````````````````
+	Sidebar
+  ´´´´´´´´´´´´´´´´´´´´*/
+@import 'includes/components/sidebar'
 
+/* ```````````````````
+	Container content
+  ´´´´´´´´´´´´´´´´´´´´*/
+@import 'includes/components/container-content'
+
+
+/* ```````````````````
+	Filters box
+  ´´´´´´´´´´´´´´´´´´´´*/
+@import 'includes/components/form'
+
+/* ```````````````````
+	Container Results
+  ´´´´´´´´´´´´´´´´´´´´*/
+@import 'includes/components/results'
 
 /* .......................................
 	Footer
@@ -107,9 +124,9 @@ hr, .divisor
 
 @import 'common/footer'
 
-/* =============================================================================
-   Media Customized
-   ========================================================================== */
+/*==============================================================================
+	Media Customized
+  ============================================================================*/
 
 @media $media-query-tablet
 	*

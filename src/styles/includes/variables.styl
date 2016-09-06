@@ -3,7 +3,7 @@
  * cheffplate! - ./includes/variables
  * https://github.com/guicheffer/cheffplate
  * Author: Joao Guilherme (@guicheffer)
- * Date: 07/2016
+ * Date: 09/2016
  */
 
 /*==============================================================================
@@ -13,45 +13,58 @@
 /* .......................................
 	Utils
   ......................................*/
-$lighter-percent = 10%
-$light-percent = 20%
-$medium-percent = 30%
-$half-percent = 50%
-$strong-percent = 70%
-$stronger-percent = 90%
+$default-font-size = $halfrem
+$lighter-percent = 15%
+$stronger-percent = 85%
 $text-visually-hidden = -9999px
-$one_rem = 16px
-$default-font-size = $one_rem
+$halfrem = 8px
 $max-sidebar-width = 110px
+$sidebar-height = 90vh
+$page-box-padding = remify(20px) remify(15px)
 
 /* .......................................
 	Colors: http://chir.ag/projects/name-that-color/
   ......................................*/
 $black = #000
 $white = #fff
+$white-five = #f9f9f9
 $gray = #ccc
 $gray-spotippos = #f1f1f1
 $gray-bg = #e5e5e4
+$gray-default = #666
+$gray-label = #999
+$gray-border = #979797
+$gray-title = #444
+$gray-card = #fafafa
 $blue = #00f
 $water-blue = #1190cd
 $azure = #00acff
+$azure-hover = #006ca0
+$twilight-blue = #094e6e
 $yellow = #ff0
 $pale-canary = #ff9
 
-/* --- on-application --- */
+/* --- Attributes Applied --- */
 $main-background-color = $gray-spotippos
 $main-container-background-color = $gray-bg
 $header-background-color = $water-blue
 $vivareal-background-color = $azure
+$sidebar-background-color = $twilight-blue
+$sidebar-item-background-color = $azure
+$sidebar-item-background-color-hover = $azure-hover
+$btn-default-background-color = $azure
+$page-box-filters-background-color = $white-five
+$page-box-results-background-color = $white
 $footer-background-color = $water-blue
 
 /* .......................................
 	Default sizes and values
   ......................................*/
-$default-font-general = 'Roboto Condensed', 'Open Sans', sans-serif, 'Helvetica'
-$default-font-size-app = remify($default-font-size)
+$default-font-general = 'Roboto Condensed', 'Open Sans', sans-serif
+$default-font-size-app = remify($default-font-size * 2)
 $default-background-position = 50% 50%
 $default-width-window = remify(1440px)
+$default-min-width-wrapper = remify(320px)
 $default-width-window-wrapper = 100%
 $default-max-width-wrapper = $default-width-window
 
@@ -60,9 +73,9 @@ $default-max-width-wrapper = $default-width-window
   ......................................*/
 $breakpoints = {
   'xs' :  0,
-  'sm' : 544px,
+  'sm' : 560px,
   'md' : 768px,
-  'lg' : 992px,
+  'lg' : 990px,
   'xl' : $default-width-window
 }
 $columns = 12
@@ -72,9 +85,10 @@ $columns = 12
   ......................................*/
 $media-query-any-retina-display = 'only screen and (-webkit-min-device-pixel-ratio: 1.5) or (min--moz-device-pixel-ratio: 1.5) or (min-resolution: 240dpi)'
 $media-query-big-desktop-screen = 'only screen and (min-width: 1441px)'
+$media-query-min-normal-desktop-screen = 'only screen and (min-width: 1301px)'
 $media-query-normal-desktop-screen = 'only screen and (max-width: 1300px)'
-$media-query-medium-desktop-screen = 'only screen and (min-width: 1200px)'
-$media-query-weak-desktop-screen = 'only screen and (max-width: 1199px)'
+$media-query-medium-desktop-screen = 'only screen and (min-width: 1150px)'
+$media-query-weak-desktop-screen = 'only screen and (max-width: 1149px)'
 $media-query-desktop = 'only screen and (min-width: 769px) and (max-width: 1260px)'
 $media-query-min-desktop = 'only screen and (min-width: 769px)'
 $media-query-tablet = 'only screen and (max-width: 768px)'

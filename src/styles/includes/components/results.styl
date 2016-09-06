@@ -1,0 +1,195 @@
+/*
+ * "Spotippos Results"
+ * https://github.com/guicheffer/cheffplate
+ * Author: Joao Guilherme (@guicheffer)
+ * Date: 09/2016
+ */
+
+/*==============================================================================
+  Local Variables
+  ============================================================================*/
+
+$container-results-min-height = $sidebar-height
+
+/*==============================================================================
+  Results
+  ============================================================================*/
+
+.container-results
+  $local-padding = $page-box-padding
+
+  background-color $page-box-results-background-color !important
+  padding $local-padding
+  min-height $container-results-min-height
+
+  .results-anns
+    list-style none
+
+  /* ```````````````````
+    Item Individual
+    ´´´´´´´´´´´´´´´´´´´´*/
+  .ann-item
+    margin-top remify(40px)
+    box-shadow 0 remify(1px) remify(3px) 0 rgba(0, 0, 0, 0.26)
+    border-radius remify(2px)
+
+    &:first-child
+      margin-top remify(20px)
+    .ann-figure
+      overflow hidden
+      position relative
+      height 20vw
+      height remify(240px)
+      background-color $black
+      .ann-image
+        object-fit cover
+        width 100%
+        height 100%
+        height remify(300px)
+        transform translateY(-20%)
+        transition opacity .3s ease-in-out
+
+        &:hover
+          opacity 0.6
+      figcaption
+        position absolute
+        bottom 0
+        color $white
+        padding 3% 5%
+        text-transform uppercase
+        line-height 1.39
+        font-weight 600
+        font-size remify(23.1px)
+        font-family 'Open Sans'
+    .ann-info
+      box-sizing border-box
+      padding-left remify(2%)
+      padding-top 2%
+      position relative
+      overflow hidden
+
+      a
+        color $gray-label
+        text-decoration none
+        &:not(.btn):hover
+          text-decoration underline
+      .ann-show-id
+        font-size remify(13px)
+        font-weight 700
+        border solid 1px $gray-border
+        display inline-block
+        border-radius remify(2px)
+        width auto
+        padding remify(2px)
+      .ann-title
+        color $gray-title
+        line-height 1.5
+        font-size remify(18px)
+        margin remify(10px) 0
+      .ann-description
+        color $gray-label
+        line-height 1.5
+        overflow hidden
+        margin-bottom remify(50px)
+        max-height remify(80px)
+        font-size remify(14px)
+      .ann-info-cards
+        list-style none
+        position absolute
+        bottom 0
+        display block
+        width 100%
+        height remify(40px)
+        margin-top remify(20px)
+        box-shadow: 0 remify(-1px) 0 0 rgba(0, 0, 0, 0.1);
+        padding remify(4px) 0
+        background-color $gray-card
+        margin-left -2%
+      .info-card
+        $local-height = 40px
+
+        width 25%
+        height remify($local-height)
+        line-height remify(($local-height / 2) + 5px)
+        margin 0 remify(10px)
+        padding-top remify(1px)
+        display inline-block
+        text-align center
+        vertical-align middle
+        position relative
+        cursor default
+
+        &:first-child
+          padding-left 3%
+          margin-left 0
+        &.card-link
+          width auto
+          float right
+          vertical-align middle
+
+          .btn
+            top 20%
+            transform translateY(-40%)
+            position relative
+        p
+          bottom 0
+          font-size remify(13px)
+          font-weight 700
+          text-transform uppercase
+          white-space nowrap
+          color $gray-label
+        .icon
+          display block
+          margin 0 auto
+          height remify(18px)
+          &.sprt-card-beds
+            background-size 238%
+          &.sprt-card-bathroom
+            background-size 260%
+
+
+/* =============================================================================
+   Media Customized
+   ========================================================================== */
+
+@media $media-query-min-normal-desktop-screen
+  .container-results
+    .ann-item
+      .ann-info
+        .info-card
+          width remify(70px)
+
+@media $media-query-min-desktop
+  .container-results
+    .ann-item
+      .ann-info
+        .ann-info-cards
+          margin-left -3%
+
+@media $media-query-tablet
+  .container-results
+    .ann-item
+      .ann-figure
+        height 30vw
+        .ann-image
+          min-height remify(300px)
+      .ann-info
+        .ann-description
+          margin-bottom remify(70px)
+          max-height remify(100px)
+        .info-card
+          width 13%
+          p
+            margin-left remify(-5px)
+          .btn
+            font-size 2vw
+
+@media $media-query-mobile
+  .container-results
+    .ann-item
+      .ann-figure
+        .ann-image
+          transform translateY(-50%)
+      .ann-info
+        .info-card
+          width 21%

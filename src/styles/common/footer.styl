@@ -3,7 +3,7 @@
  * cheffplate! - ./base/header
  * https://github.com/guicheffer/cheffplate
  * Author: Joao Guilherme (@guicheffer)
- * Date: 07/2016
+ * Date: 09/2016
  */
 
 /*==============================================================================
@@ -19,11 +19,14 @@ $height-header = 30px
 footer
   position absolute
   bottom 0
-  padding remify(10px)
   box-sizing border-box
   text-align right
   background $footer-background-color
   color $white
   font-weight normal
-  font-family 'Open Sans'
-  line-height remify(22px)
+
+  p
+    font-family 'Open Sans'
+    font-size remify(12px)
+    line-height remify(30px)
+    padding remify(2px) remify($halfrem * 4) remify(2px)
