@@ -109,8 +109,8 @@ Melhorias [o que não deu tempo lol]
 * ~~Animações UI~~ :ok_hand:
 * ~~Sidebar flutuando~~ :ok_hand:
 * ~~Corrigir warnings React (Caso bem parecido: https://github.com/martyjs/marty/issues/336)~~ :ok_hand:
+* Refatoração do core :hourglass_flowing_sand:
+* Organização das layers do container principal :hourglass_flowing_sand:
 * Testes unitários :hourglass_flowing_sand:
 * Testes de UI :hourglass_flowing_sand:
 * Testes de stress/sobrecarga (frontend) :-1:
-* Refatoração do core :hourglass_flowing_sand:
-* Organização das layers do container principal :hourglass_flowing_sand:
