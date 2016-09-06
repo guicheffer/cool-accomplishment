@@ -8,3 +8,4 @@ npm-debug.log
 .htaccess
 .DS_Store
 src/styles/includes/sprites/*.css
+src/assets/images/sprite-*
