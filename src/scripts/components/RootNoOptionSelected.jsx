@@ -1,12 +1,15 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router';
-import map from 'lodash/map';
+
+import Header from './Header'
+import Content from './Content'
 
 class RootNoOptionSelected extends React.Component {
-  render(){
+  render() {
     return (
-      <div>oi</div>
+      <div>
+        <Header />
+        <Content itemSelected="null" />
+      </div>
     )
   }
 }

@@ -28,266 +28,229 @@
 
             <div class="wrapper wrapper-base grid" role="main">
 
-                <header role="banner">
-                    <nav class="nav nav-horizontal nav-header row" role="navigation">
-                        <a
-                            href="javascript:void(0)"
-                            class="nav-header-subtitle col-xs-2 col-sm-1"
-                        ><strong class="icon sprt sprt-vivareal">Viva Real</strong></a>
-                        <h1 class="nav-header-title text-xs-10 text-sm-11">Spotippos - Anúncios</h1>
-                    </nav>
-                </header>
+                <div id="app-spotippos"></div>
 
-                <!-- <div id="spotippos"></div> -->
-                <div class="content spotippos-content row">
+                <!--
+                <div class="wrapper wrapper-page col-xs-10 col-sm-11 grid">
+                    <div class="row">
+                        <section class="page-box col-xs-12 col-sm-12 col-md-4">
+                            <div class="container container-filter">
+                                <h3 class="title">Filtro</h3>
 
-                    <aside class="sidebar spotippos-sidebar col-xs-2 col-sm-1">
-                        <nav class="nav nav-vertical nav-sidebar">
-                            <ul class="options">
-                                <li class="item item-called-anns selected">
-                                    <a
-                                        href="javascript:void(0)"
-                                        title="Anúncios"
-                                    >
-                                        <span class="icon sprt sprt-building"></span>
-                                        Anúncios
-                                    </a>
-                                </li>
-                                <li class="item item-called-new-ann">
-                                    <a
-                                        href="javascript:void(0)"
-                                        title="Novo anúncio"
-                                    >
-                                        <span class="icon sprt sprt-plus"></span>
-                                        Novo anúncio
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </aside>
-
-                    <div class="wrapper wrapper-page col-xs-10 col-sm-11 grid">
-                        <div class="row">
-                            <section class="page-box col-xs-12 col-sm-12 col-md-4">
-                                <div class="container container-filter">
-                                    <h3 class="title">Filtro</h3>
-
-                                    <form
-                                        class="form form-filters col-xs-12"
-                                        onSubmit="javascript:void(0)"
-                                        method="get"
-                                        novalidate
-                                    >
-                                        <div class="form-row">
-                                            <div class="form-group form-field-id">
-                                                <label for="id">ID</label>
-                                                <input id="id" placeholder type="tel"/>
-                                            </div>
-                                            <div class="form-group form-field-area">
-                                                <label for="area">Área</label>
-                                                <input id="area" placeholder type="text"/>
-                                            </div>
+                                <form
+                                    class="form form-filters col-xs-12"
+                                    onSubmit="javascript:void(0)"
+                                    method="get"
+                                    novalidate
+                                >
+                                    <div class="form-row">
+                                        <div class="form-group form-field-id">
+                                            <label for="id">ID</label>
+                                            <input id="id" placeholder type="tel"/>
                                         </div>
-                                        <div class="form-row">
-                                            <div class="form-group form-field-rooms">
-                                                <label for="rooms">Quartos</label>
-                                                <input id="rooms" placeholder type="text"/>
-                                            </div>
-                                            <div class="form-group form-field-baths">
-                                                <label for="baths">Banheiros</label>
-                                                <input id="baths" placeholder type="text"/>
-                                            </div>
+                                        <div class="form-group form-field-area">
+                                            <label for="area">Área</label>
+                                            <input id="area" placeholder type="text"/>
                                         </div>
-                                        <div class="form-row">
-                                            <div class="form-group form-field-value between-count">
-                                                <label for="min">Valor</label>
-                                                <input id="min" placeholder="Mínimo" type="text"/>
-                                                <span class="icon itself"></span>
-                                                <input id="max" placeholder="Máximo" type="text"/>
-                                            </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group form-field-rooms">
+                                            <label for="rooms">Quartos</label>
+                                            <input id="rooms" placeholder type="text"/>
                                         </div>
-                                    </form>
-                                </div>
-                            </section>
-                            <section class="page-box col-xs-12 col-sm-12 col-md-8">
-                                <div class="container container-results">
-                                    <ul class="results-anns">
-                                        <li class="ann-item grid">
-                                            <div class="row">
-                                                <figure class="ann-figure col-sm-12 col-md-5">
-                                                    <a href="javascript:void(0)">
-                                                        <img
-                                                            alt="imovel 1234"
-                                                            class="ann-image"
-                                                            src="http://resizedimgs.vivareal.com/2vkX-W8xmnUF8uoj2Bmaf_7AWLU=/fit-in/480x0/vr.images.sp/f2db4ce6f9175ebc8f929a5e266354e3.jpg"
-                                                        />
-                                                        <figcaption>R$ 584,00</figcaption>
-                                                    </a>
-                                                </figure>
-                                                <article class="ann-info col-sm-12 col-md-7" role="result">
-                                                    <a href="javascript:void(0)">
-                                                        <p class="ann-show-id">ID. 1234</p>
-                                                        <h4 class="ann-title">Imóvel codigo 1234, com 2 quartos e 2 banheiros.</h4>
-                                                    </a>
-                                                    <p class="ann-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id est dapibus, finibus lorem sed, fermentum purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque eget dictum metus, vitae facilisis erat. Pellentesque nisi urna, ultricies sit amet magna ac, pulvinar consequat augue. Nunc sit!</p>
+                                        <div class="form-group form-field-baths">
+                                            <label for="baths">Banheiros</label>
+                                            <input id="baths" placeholder type="text"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group form-field-value between-count">
+                                            <label for="min">Valor</label>
+                                            <input id="min" placeholder="Mínimo" type="text"/>
+                                            <span class="icon itself"></span>
+                                            <input id="max" placeholder="Máximo" type="text"/>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </section>
+                        <section class="page-box col-xs-12 col-sm-12 col-md-8">
+                            <div class="container container-results">
+                                <ul class="results-anns">
+                                    <li class="ann-item grid">
+                                        <div class="row">
+                                            <figure class="ann-figure col-sm-12 col-md-5">
+                                                <a href="javascript:void(0)">
+                                                    <img
+                                                        alt="imovel 1234"
+                                                        class="ann-image"
+                                                        src="http://resizedimgs.vivareal.com/2vkX-W8xmnUF8uoj2Bmaf_7AWLU=/fit-in/480x0/vr.images.sp/f2db4ce6f9175ebc8f929a5e266354e3.jpg"
+                                                    />
+                                                    <figcaption>R$ 584,00</figcaption>
+                                                </a>
+                                            </figure>
+                                            <article class="ann-info col-sm-12 col-md-7" role="result">
+                                                <a href="javascript:void(0)">
+                                                    <p class="ann-show-id">ID. 1234</p>
+                                                    <h4 class="ann-title">Imóvel codigo 1234, com 2 quartos e 2 banheiros.</h4>
+                                                </a>
+                                                <p class="ann-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id est dapibus, finibus lorem sed, fermentum purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque eget dictum metus, vitae facilisis erat. Pellentesque nisi urna, ultricies sit amet magna ac, pulvinar consequat augue. Nunc sit!</p>
 
-                                                    <ul class="ann-info-cards">
-                                                        <li class="info-card card-area">
-                                                            <span class="icon sprt sprt-area"></span>
-                                                            <p>73 M²</p>
-                                                        </li>
-                                                        <li class="info-card card-beds">
-                                                            <span class="icon sprt sprt-beds"></span>
-                                                            <p>2 Quartos</p>
-                                                        </li>
-                                                        <li class="info-card card-bathroom">
-                                                            <span class="icon sprt sprt-bathroom"></span>
-                                                            <p>2 Banheiros</p>
-                                                        </li>
-                                                        <li class="info-card card-link">
-                                                            <a
-                                                                href="javascript:void(0)"
-                                                                class="btn btn-primary"
-                                                            >Visualizar anúncio</a>
-                                                        </li>
-                                                    </ul>
-                                                </article>
-                                            </div>
-                                        </li>
-                                        <li class="ann-item grid">
-                                            <div class="row">
-                                                <figure class="ann-figure col-sm-12 col-md-5">
-                                                    <a href="javascript:void(0)">
-                                                        <img
-                                                            alt="imovel 1234"
-                                                            class="ann-image"
-                                                            src="http://resizedimgs.vivareal.com/2vkX-W8xmnUF8uoj2Bmaf_7AWLU=/fit-in/480x0/vr.images.sp/f2db4ce6f9175ebc8f929a5e266354e3.jpg"
-                                                        />
-                                                        <figcaption>R$ 584,00</figcaption>
-                                                    </a>
-                                                </figure>
-                                                <article class="ann-info col-sm-12 col-md-7" role="result">
-                                                    <a href="javascript:void(0)">
-                                                        <p class="ann-show-id">ID. 1234</p>
-                                                        <h4 class="ann-title">Imóvel codigo 1234, com 2 quartos e 2 banheiros.</h4>
-                                                    </a>
-                                                    <p class="ann-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id est dapibus, finibus lorem sed, fermentum purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque eget dictum metus, vitae facilisis erat. Pellentesque nisi urna, ultricies sit amet magna ac, pulvinar consequat augue. Nunc sit!</p>
+                                                <ul class="ann-info-cards">
+                                                    <li class="info-card card-area">
+                                                        <span class="icon sprt sprt-area"></span>
+                                                        <p>73 M²</p>
+                                                    </li>
+                                                    <li class="info-card card-beds">
+                                                        <span class="icon sprt sprt-beds"></span>
+                                                        <p>2 Quartos</p>
+                                                    </li>
+                                                    <li class="info-card card-bathroom">
+                                                        <span class="icon sprt sprt-bathroom"></span>
+                                                        <p>2 Banheiros</p>
+                                                    </li>
+                                                    <li class="info-card card-link">
+                                                        <a
+                                                            href="javascript:void(0)"
+                                                            class="btn btn-primary"
+                                                        >Visualizar anúncio</a>
+                                                    </li>
+                                                </ul>
+                                            </article>
+                                        </div>
+                                    </li>
+                                    <li class="ann-item grid">
+                                        <div class="row">
+                                            <figure class="ann-figure col-sm-12 col-md-5">
+                                                <a href="javascript:void(0)">
+                                                    <img
+                                                        alt="imovel 1234"
+                                                        class="ann-image"
+                                                        src="http://resizedimgs.vivareal.com/2vkX-W8xmnUF8uoj2Bmaf_7AWLU=/fit-in/480x0/vr.images.sp/f2db4ce6f9175ebc8f929a5e266354e3.jpg"
+                                                    />
+                                                    <figcaption>R$ 584,00</figcaption>
+                                                </a>
+                                            </figure>
+                                            <article class="ann-info col-sm-12 col-md-7" role="result">
+                                                <a href="javascript:void(0)">
+                                                    <p class="ann-show-id">ID. 1234</p>
+                                                    <h4 class="ann-title">Imóvel codigo 1234, com 2 quartos e 2 banheiros.</h4>
+                                                </a>
+                                                <p class="ann-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id est dapibus, finibus lorem sed, fermentum purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque eget dictum metus, vitae facilisis erat. Pellentesque nisi urna, ultricies sit amet magna ac, pulvinar consequat augue. Nunc sit!</p>
 
-                                                    <ul class="ann-info-cards">
-                                                        <li class="info-card card-area">
-                                                            <span class="icon sprt sprt-area"></span>
-                                                            <p>73 M²</p>
-                                                        </li>
-                                                        <li class="info-card card-beds">
-                                                            <span class="icon sprt sprt-beds"></span>
-                                                            <p>2 Quartos</p>
-                                                        </li>
-                                                        <li class="info-card card-bathroom">
-                                                            <span class="icon sprt sprt-bathroom"></span>
-                                                            <p>2 Banheiros</p>
-                                                        </li>
-                                                        <li class="info-card card-link">
-                                                            <a
-                                                                href="javascript:void(0)"
-                                                                class="btn btn-primary"
-                                                            >Visualizar anúncio</a>
-                                                        </li>
-                                                    </ul>
-                                                </article>
-                                            </div>
-                                        </li>
-                                        <li class="ann-item grid">
-                                            <div class="row">
-                                                <figure class="ann-figure col-sm-12 col-md-5">
-                                                    <a href="javascript:void(0)">
-                                                        <img
-                                                            alt="imovel 1234"
-                                                            class="ann-image"
-                                                            src="http://resizedimgs.vivareal.com/2vkX-W8xmnUF8uoj2Bmaf_7AWLU=/fit-in/480x0/vr.images.sp/f2db4ce6f9175ebc8f929a5e266354e3.jpg"
-                                                        />
-                                                        <figcaption>R$ 584,00</figcaption>
-                                                    </a>
-                                                </figure>
-                                                <article class="ann-info col-sm-12 col-md-7" role="result">
-                                                    <a href="javascript:void(0)">
-                                                        <p class="ann-show-id">ID. 1234</p>
-                                                        <h4 class="ann-title">Imóvel codigo 1234, com 2 quartos e 2 banheiros.</h4>
-                                                    </a>
-                                                    <p class="ann-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id est dapibus, finibus lorem sed, fermentum purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque eget dictum metus, vitae facilisis erat. Pellentesque nisi urna, ultricies sit amet magna ac, pulvinar consequat augue. Nunc sit!</p>
+                                                <ul class="ann-info-cards">
+                                                    <li class="info-card card-area">
+                                                        <span class="icon sprt sprt-area"></span>
+                                                        <p>73 M²</p>
+                                                    </li>
+                                                    <li class="info-card card-beds">
+                                                        <span class="icon sprt sprt-beds"></span>
+                                                        <p>2 Quartos</p>
+                                                    </li>
+                                                    <li class="info-card card-bathroom">
+                                                        <span class="icon sprt sprt-bathroom"></span>
+                                                        <p>2 Banheiros</p>
+                                                    </li>
+                                                    <li class="info-card card-link">
+                                                        <a
+                                                            href="javascript:void(0)"
+                                                            class="btn btn-primary"
+                                                        >Visualizar anúncio</a>
+                                                    </li>
+                                                </ul>
+                                            </article>
+                                        </div>
+                                    </li>
+                                    <li class="ann-item grid">
+                                        <div class="row">
+                                            <figure class="ann-figure col-sm-12 col-md-5">
+                                                <a href="javascript:void(0)">
+                                                    <img
+                                                        alt="imovel 1234"
+                                                        class="ann-image"
+                                                        src="http://resizedimgs.vivareal.com/2vkX-W8xmnUF8uoj2Bmaf_7AWLU=/fit-in/480x0/vr.images.sp/f2db4ce6f9175ebc8f929a5e266354e3.jpg"
+                                                    />
+                                                    <figcaption>R$ 584,00</figcaption>
+                                                </a>
+                                            </figure>
+                                            <article class="ann-info col-sm-12 col-md-7" role="result">
+                                                <a href="javascript:void(0)">
+                                                    <p class="ann-show-id">ID. 1234</p>
+                                                    <h4 class="ann-title">Imóvel codigo 1234, com 2 quartos e 2 banheiros.</h4>
+                                                </a>
+                                                <p class="ann-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id est dapibus, finibus lorem sed, fermentum purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque eget dictum metus, vitae facilisis erat. Pellentesque nisi urna, ultricies sit amet magna ac, pulvinar consequat augue. Nunc sit!</p>
 
-                                                    <ul class="ann-info-cards">
-                                                        <li class="info-card card-area">
-                                                            <span class="icon sprt sprt-area"></span>
-                                                            <p>73 M²</p>
-                                                        </li>
-                                                        <li class="info-card card-beds">
-                                                            <span class="icon sprt sprt-beds"></span>
-                                                            <p>2 Quartos</p>
-                                                        </li>
-                                                        <li class="info-card card-bathroom">
-                                                            <span class="icon sprt sprt-bathroom"></span>
-                                                            <p>2 Banheiros</p>
-                                                        </li>
-                                                        <li class="info-card card-link">
-                                                            <a
-                                                                href="javascript:void(0)"
-                                                                class="btn btn-primary"
-                                                            >Visualizar anúncio</a>
-                                                        </li>
-                                                    </ul>
-                                                </article>
-                                            </div>
-                                        </li>
-                                        <li class="ann-item grid">
-                                            <div class="row">
-                                                <figure class="ann-figure col-sm-12 col-md-5">
-                                                    <a href="javascript:void(0)">
-                                                        <img
-                                                            alt="imovel 1234"
-                                                            class="ann-image"
-                                                            src="http://resizedimgs.vivareal.com/2vkX-W8xmnUF8uoj2Bmaf_7AWLU=/fit-in/480x0/vr.images.sp/f2db4ce6f9175ebc8f929a5e266354e3.jpg"
-                                                        />
-                                                        <figcaption>R$ 584,00</figcaption>
-                                                    </a>
-                                                </figure>
-                                                <article class="ann-info col-sm-12 col-md-7" role="result">
-                                                    <a href="javascript:void(0)">
-                                                        <p class="ann-show-id">ID. 1234</p>
-                                                        <h4 class="ann-title">Imóvel codigo 1234, com 2 quartos e 2 banheiros.</h4>
-                                                    </a>
-                                                    <p class="ann-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id est dapibus, finibus lorem sed, fermentum purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque eget dictum metus, vitae facilisis erat. Pellentesque nisi urna, ultricies sit amet magna ac, pulvinar consequat augue. Nunc sit!</p>
+                                                <ul class="ann-info-cards">
+                                                    <li class="info-card card-area">
+                                                        <span class="icon sprt sprt-area"></span>
+                                                        <p>73 M²</p>
+                                                    </li>
+                                                    <li class="info-card card-beds">
+                                                        <span class="icon sprt sprt-beds"></span>
+                                                        <p>2 Quartos</p>
+                                                    </li>
+                                                    <li class="info-card card-bathroom">
+                                                        <span class="icon sprt sprt-bathroom"></span>
+                                                        <p>2 Banheiros</p>
+                                                    </li>
+                                                    <li class="info-card card-link">
+                                                        <a
+                                                            href="javascript:void(0)"
+                                                            class="btn btn-primary"
+                                                        >Visualizar anúncio</a>
+                                                    </li>
+                                                </ul>
+                                            </article>
+                                        </div>
+                                    </li>
+                                    <li class="ann-item grid">
+                                        <div class="row">
+                                            <figure class="ann-figure col-sm-12 col-md-5">
+                                                <a href="javascript:void(0)">
+                                                    <img
+                                                        alt="imovel 1234"
+                                                        class="ann-image"
+                                                        src="http://resizedimgs.vivareal.com/2vkX-W8xmnUF8uoj2Bmaf_7AWLU=/fit-in/480x0/vr.images.sp/f2db4ce6f9175ebc8f929a5e266354e3.jpg"
+                                                    />
+                                                    <figcaption>R$ 584,00</figcaption>
+                                                </a>
+                                            </figure>
+                                            <article class="ann-info col-sm-12 col-md-7" role="result">
+                                                <a href="javascript:void(0)">
+                                                    <p class="ann-show-id">ID. 1234</p>
+                                                    <h4 class="ann-title">Imóvel codigo 1234, com 2 quartos e 2 banheiros.</h4>
+                                                </a>
+                                                <p class="ann-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id est dapibus, finibus lorem sed, fermentum purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque eget dictum metus, vitae facilisis erat. Pellentesque nisi urna, ultricies sit amet magna ac, pulvinar consequat augue. Nunc sit!</p>
 
-                                                    <ul class="ann-info-cards">
-                                                        <li class="info-card card-area">
-                                                            <span class="icon sprt sprt-area"></span>
-                                                            <p>73 M²</p>
-                                                        </li>
-                                                        <li class="info-card card-beds">
-                                                            <span class="icon sprt sprt-beds"></span>
-                                                            <p>2 Quartos</p>
-                                                        </li>
-                                                        <li class="info-card card-bathroom">
-                                                            <span class="icon sprt sprt-bathroom"></span>
-                                                            <p>2 Banheiros</p>
-                                                        </li>
-                                                        <li class="info-card card-link">
-                                                            <a
-                                                                href="javascript:void(0)"
-                                                                class="btn btn-primary"
-                                                            >Visualizar anúncio</a>
-                                                        </li>
-                                                    </ul>
-                                                </article>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </section>
-                        </div>
+                                                <ul class="ann-info-cards">
+                                                    <li class="info-card card-area">
+                                                        <span class="icon sprt sprt-area"></span>
+                                                        <p>73 M²</p>
+                                                    </li>
+                                                    <li class="info-card card-beds">
+                                                        <span class="icon sprt sprt-beds"></span>
+                                                        <p>2 Quartos</p>
+                                                    </li>
+                                                    <li class="info-card card-bathroom">
+                                                        <span class="icon sprt sprt-bathroom"></span>
+                                                        <p>2 Banheiros</p>
+                                                    </li>
+                                                    <li class="info-card card-link">
+                                                        <a
+                                                            href="javascript:void(0)"
+                                                            class="btn btn-primary"
+                                                        >Visualizar anúncio</a>
+                                                    </li>
+                                                </ul>
+                                            </article>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
                     </div>
-
                 </div>
-                <!-- <div id="spotippos"></div> -->
+                -->
 
                 <div class="row">
                     <footer class="col-xs-12" role="contentinfo">

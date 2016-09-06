@@ -21,13 +21,24 @@ $container-results-min-height = $sidebar-height
   background-color $page-box-results-background-color !important
   padding $local-padding
   min-height $container-results-min-height
+  transition opacity .4s ease-in-out
 
+  &.loading
+    opacity 0.4
+
+  .icon-loader
+    background url('../assets/images/forked-loader.gif')
+    width remify(80px)
+    height remify(80px)
+    display block
+    margin remify(20px) auto
+
+  /* ```````````````````
+    ListAnnouncements
+    ´´´´´´´´´´´´´´´´´´´´*/
   .results-anns
     list-style none
 
-  /* ```````````````````
-    Item Individual
-    ´´´´´´´´´´´´´´´´´´´´*/
   .ann-item
     margin-top remify(40px)
     box-shadow 0 remify(1px) remify(3px) 0 rgba(0, 0, 0, 0.26)
@@ -122,6 +133,8 @@ $container-results-min-height = $sidebar-height
         &:first-child
           padding-left 3%
           margin-left 0
+        &.card-beds, &.card-bathroom
+          padding-top remify(5px)
         &.card-link
           width auto
           float right
@@ -141,11 +154,6 @@ $container-results-min-height = $sidebar-height
         .icon
           display block
           margin 0 auto
-          height remify(18px)
-          &.sprt-card-beds
-            background-size 238%
-          &.sprt-card-bathroom
-            background-size 260%
 
 
 /* =============================================================================
