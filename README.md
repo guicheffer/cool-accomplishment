@@ -2,9 +2,9 @@
 
 Teste em produção http://spotippos-guicheffer.herokuapp.com/
 
-Repositório https://github.com/guicheffer/spotippos
-
 Resolução do teste https://github.com/VivaReal/code-challenge/blob/master/frontend.md
+
+Repositório https://github.com/guicheffer/spotippos
 
 Coisinhas bem importantes:
 -------------------------
