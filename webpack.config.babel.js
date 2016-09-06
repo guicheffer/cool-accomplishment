@@ -41,7 +41,7 @@ let config = {
     preLoaders: [
       {
         test: /(\.js|\.jsx)$/,
-        exclude: /(node_modules|build)/,
+        exclude: /(node_modules)/,
         loader: 'eslint-loader',
         include: path.join(__dirname, pkg.config.path.src, 'scripts')
       }
@@ -50,7 +50,7 @@ let config = {
     loaders: [
       {
         test: /(\.js|\.jsx)$/,
-        exclude: /(node_modules|build)/,
+        exclude: /(node_modules)/,
         loader: 'babel',
         include: path.join(__dirname, pkg.config.path.src, 'scripts'),
         query: {
@@ -95,6 +95,7 @@ let config = {
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),
+    new webpack.NoErrorsPlugin(),
     new SpriteWebpack({
       'source': resolve(__dirname, pkg.config.path.src, 'assets/images/spriting/'),
       'imgPath': resolve(__dirname, pkg.config.path.src, 'assets/images/'),
@@ -119,7 +120,7 @@ let config = {
     ? [] : [
       new webpack.optimize.UglifyJsPlugin({
         include: /(\.js)$/,
-        exclude: /(node_modules|build)/,
+        exclude: /(node_modules)/,
         sourceMap: true,
         output: {
           comments: true
