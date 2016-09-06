@@ -106,11 +106,11 @@ Melhorias [o que não deu tempo lol]
 ---------
 * ~~Testes manuais~~ :ok_hand:
 * ~~Testes end-to-end~~ :ok_hand:
+* ~~Animações UI~~ :ok_hand:
+* ~~Sidebar flutuando~~ :ok_hand:
+* ~~Corrigir warnings React (Caso bem parecido: https://github.com/martyjs/marty/issues/336)~~ :ok_hand:
 * Testes unitários :hourglass_flowing_sand:
 * Testes de UI :hourglass_flowing_sand:
 * Testes de stress/sobrecarga (frontend) :-1:
-* Animações UI :hourglass_flowing_sand:
-* Sidebar flutuando :hourglass_flowing_sand:
 * Refatoração do core :hourglass_flowing_sand:
 * Organização das layers do container principal :hourglass_flowing_sand:
-* ~~Corrigir warnings React (Caso bem parecido: https://github.com/martyjs/marty/issues/336)~~ :ok_hand:
