@@ -10,6 +10,7 @@
   ============================================================================*/
 
 $container-results-min-height = $sidebar-height
+$info-card-width = 25%
 
 /*==============================================================================
   Results
@@ -119,7 +120,7 @@ $container-results-min-height = $sidebar-height
       .info-card
         $local-height = 40px
 
-        width 25%
+        width $info-card-width
         height remify($local-height)
         line-height remify(($local-height / 2) + 5px)
         margin 0 remify(10px)
@@ -134,7 +135,7 @@ $container-results-min-height = $sidebar-height
           padding-left 3%
           margin-left 0
         &.card-beds, &.card-bathroom
-          padding-top remify(5px)
+          padding-top remify(7px)
         &.card-link
           width auto
           float right
@@ -197,7 +198,8 @@ $container-results-min-height = $sidebar-height
     .ann-item
       .ann-figure
         .ann-image
-          transform translateY(-50%)
+          transform translateY(-40%)
       .ann-info
+        padding-top remify(20px)
         .info-card
-          width 21%
+          width $info-card-width
