@@ -1,6 +1,6 @@
 # Spotippos
 
-Teste em produção http://spotippos-guicheffer.herokuapp.com/
+Teste em produção (uat) http://spotippos-guicheffer.herokuapp.com/
 
 Resolução do teste https://github.com/VivaReal/code-challenge/blob/master/frontend.md
 
@@ -11,6 +11,8 @@ Coisinhas bem importantes:
 
 - Utilizando **npm** _~3.8.9_
 - Utilizando **Node.js** _>=5.1.1_
+- Default branch **origin/develop**
+- ~~Production branch **origin/master**~~
 
 Setup
 -----
