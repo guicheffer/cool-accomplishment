@@ -36,6 +36,7 @@
     "heroku-prebuild": "npm i --dev",
     "env": "node -p \"require('./package.json').config;\"",
     "clean": "npm run pretest && rimraf $npm_package_config_path_build && mkdir $npm_package_config_path_build",
+    "deploy": "npm run start:build",
     "stop": "npm run clean",
     "favicon": "cp src/assets/images/favicon.ico $npm_package_config_path_build",
     "prestart:build": "npm stop && npm run favicon",
