@@ -1,5 +1,7 @@
 # Spotippos
 
+Teste em produção http://spotippos-guicheffer.herokuapp.com/
+Repositório https://github.com/guicheffer/spotippos
 Resolução do teste https://github.com/VivaReal/code-challenge/blob/master/frontend.md
 
 Coisinhas bem importantes:
@@ -32,7 +34,7 @@ npm run start:dev
 
 Agora acesse http://localhost:3000/ para testar a área _front_ do Spotippos e realizar seu sonho de encontrar um belo imóvel :)
 
-Se você deseja apenas visualizar a cara do _site_ funcionando, entre em: https://spotippos-guicheffer.herokuapp.com/ ...
+Se você deseja apenas visualizar a cara do _site_ funcionando, entre em: http://spotippos-guicheffer.herokuapp.com/ (no ssl certificate) ...
 
 ...ele foi compilado utilizando o seguinte comando(que se rodado, ele compilará os arquivos e dependências em *js* e *css* diretamente pra prod e servirá a pasta `build/` ):
 ```
