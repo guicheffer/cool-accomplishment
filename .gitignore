@@ -5,7 +5,7 @@ npm-debug.log
 .npmrc
 
 #Spotippos structure
-.htaccess
+.htaccess #Guia Tech server
 .DS_Store
 src/styles/includes/sprites/*.css
 src/assets/images/sprite-*
