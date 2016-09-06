@@ -18,11 +18,13 @@ start: dev
 
 serve: start
 
+serve-new: clean start
+
 test:
 	npm test
 
 clean:
-	npm clean
+	npm run clean
 
 # Be sure on testing
 deploy: test
