@@ -26,9 +26,11 @@ test:
 clean:
 	npm run clean
 
-# Be sure on testing
-deploy: test
+build:
 	npm run start:build
+
+# Be sure on testing
+deploy: test build
 
 gource:
 	@echo "Nenhuma task 'gource' foi configurada"

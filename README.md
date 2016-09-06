@@ -80,13 +80,14 @@ Observações
 
 	- React.js (from facebook)
 	- Redux.js (from React thing)
-    - lodash for objects
+    - immutable/lodash for objects
 	- ... w/ es6 (using babel)
 	- Stylus
-	- OOCSS
+	- ... PostCSS
+    - ... OOCSS
+    - Karma
 	- Webpack
-	- Karma
-	- ~~CDN~~
+	- ~~CDN (not settled up)~~
 
 - Primeiramente decidi utilizar as tecnologias em JS justamente pela questão da preferência e conforto em trabalhar no dia a dia com as mesmas por mais que já tenho experienciado frameworks como Angular 1/2 e Meteor.
 
