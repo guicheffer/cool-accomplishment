@@ -21,6 +21,9 @@ serve: start
 test:
 	npm test
 
+clean:
+	npm clean
+
 # Be sure on testing
 deploy: test
 	npm run start:build
