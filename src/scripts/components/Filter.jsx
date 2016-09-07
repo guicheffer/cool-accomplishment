@@ -2,18 +2,25 @@ import React from 'react'
 import { Link } from 'react-router';
 
 class Filter extends React.Component {
-  handleBlurFieldForm(e, t) {
-    return console.log(t);
+  componentDidMount() {
+    const containerFilter = this.nodeScroll;
+    const wrapperPage = document.querySelector('.wrapper-page');
+
+    wrapperPage.addEventListener('scroll', function(e){
+      containerFilter.style.padding = `${this.scrollTop}px 0 0 0`;
+    });
   }
 
-	componentDidMount() {
-		const containerFilter = this.nodeScroll;
-		const wrapperPage = document.querySelector('.wrapper-page');
-
-		wrapperPage.addEventListener('scroll', function(e){
-			containerFilter.style.padding = `${this.scrollTop}px 0 0 0`;
-		});
-	}
+  handleFieldChange(e) {
+    this.props.handleFilters({
+      id: this.nodeId.value,
+      area: this.nodeArea.value,
+      beds: this.nodeBeds.value,
+      baths: this.nodeBaths.value,
+      valMin: this.nodeValMin.value,
+      valMax: this.nodeValMax.value
+    });
+  }
 
 	render() {
     const filters = this.props.filters;
@@ -34,16 +41,20 @@ class Filter extends React.Component {
 										<div className="form-row">
 												<div className="form-group form-field-id">
 														<label htmlFor="id">ID</label>
-														<input onBlur={e => {
-                              this.handleBlurFieldForm(e, this);
-                            }} id="id" placeholder="" value={filters.id} type="tel"
+														<input onChange={e => {
+                              this.handleFieldChange(e);
+                            }} ref={node=>{this.nodeId = node}}
+                              id="id" placeholder=""
+                              value={filters.id} type="tel"
                             />
 												</div>
 												<div className="form-group form-field-area">
 														<label htmlFor="area">Área</label>
-														<input onBlur={e => {
-                              this.handleBlurFieldForm(e, this);
-                            }} id="area" placeholder="" value={filters.area} type="tel"
+														<input onChange={e => {
+                              this.handleFieldChange(e);
+                            }} ref={node=>{this.nodeArea = node}}
+                              id="area" placeholder=""
+                              value={filters.area} type="tel"
                             disabled={filters.id ? "disabled" : ""}
                             />
 												</div>
@@ -51,17 +62,21 @@ class Filter extends React.Component {
 										<div className="form-row">
 												<div className="form-group form-field-rooms">
 														<label htmlFor="rooms">Quartos</label>
-														<input onBlur={e => {
-                              this.handleBlurFieldForm(e, this);
-                            }} id="rooms" placeholder="" value={filters.beds} type="tel"
+														<input onChange={e => {
+                              this.handleFieldChange(e);
+                            }} ref={node=>{this.nodeBeds = node}}
+                              id="rooms" placeholder=""
+                              value={filters.beds} type="tel"
                             disabled={filters.id ? "disabled" : ""}
                             />
 												</div>
 												<div className="form-group form-field-baths">
 														<label htmlFor="baths">Banheiros</label>
-														<input onBlur={e => {
-                              this.handleBlurFieldForm(e, this);
-                            }} id="baths" placeholder="" value={filters.baths} type="tel"
+														<input onChange={e => {
+                              this.handleFieldChange(e);
+                            }} ref={node=>{this.nodeBaths = node}}
+                              id="baths" placeholder=""
+                              value={filters.baths} type="tel"
                             disabled={filters.id ? "disabled" : ""}
                             />
 												</div>
@@ -69,15 +84,19 @@ class Filter extends React.Component {
 										<div className="form-row">
 												<div className="form-group form-field-value between-count">
 														<label htmlFor="valMin">Valor</label>
-														<input onBlur={e => {
-                              this.handleBlurFieldForm(e, this);
-                            }} id="valMin" placeholder="Mínimo" value={filters.valMin} type="tel"
+														<input onChange={e => {
+                              this.handleFieldChange(e);
+                            }} ref={node=>{this.nodeValMin = node}}
+                              id="valMin" placeholder="Mínimo"
+                              value={filters.valMin} type="tel"
                             disabled={filters.id ? "disabled" : ""}
                             />
 														<span className="icon itself"></span>
-														<input onBlur={e => {
-                              this.handleBlurFieldForm(e, this);
-                            }} id="valMax" placeholder="Máximo" value={filters.valMax} type="tel"
+														<input onChange={e => {
+                              this.handleFieldChange(e);
+                            }} ref={node=>{this.nodeValMax = node}}
+                              id="valMax" placeholder="Máximo"
+                              value={filters.valMax} type="tel"
                             disabled={filters.id ? "disabled" : ""}
                             />
 												</div>

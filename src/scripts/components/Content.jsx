@@ -10,7 +10,10 @@ class Content extends React.Component {
 				<Sidebar itemSelected={this.props.itemSelected} />
         {
           this.props.itemSelected === "announcements" ?
-          <Wrapper queryFilters={this.props.filters} /> : ""
+          <Wrapper
+            changeQueryFilters={this.props.changeQueryFilters}
+            queryFilters={this.props.filters}
+          /> : ""
         }
 			</div>
     )

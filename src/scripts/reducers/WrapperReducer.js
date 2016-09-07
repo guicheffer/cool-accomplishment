@@ -1,4 +1,6 @@
-import { INIT_FILTERS } from '../actions/WrapperAction'
+import { INIT_FILTERS,
+         CHANGE_FILTERS,
+         DISABLE_CHANGED } from '../actions/WrapperAction'
 
 const INITIAL_STATE = {filters: {
   id: "",
@@ -6,7 +8,8 @@ const INITIAL_STATE = {filters: {
   beds: "",
   baths: "",
   valMin: "",
-  valMax: ""
+  valMax: "",
+  changed: false
 }};
 
 export default function(state = INITIAL_STATE, action) {
@@ -18,8 +21,21 @@ export default function(state = INITIAL_STATE, action) {
         beds: action.initialFilters.beds || "",
         baths: action.initialFilters.baths || "",
         valMin: action.initialFilters.valMin || "",
-        valMax: action.initialFilters.valMax || ""
+        valMax: action.initialFilters.valMax || "",
+        changed: true
       } };
+    case CHANGE_FILTERS:
+      action.currentFilters.changed = true
+
+      return {
+        ...state, filters: action.currentFilters
+      }
+    case DISABLE_CHANGED:
+      action.currentFilters.changed = false
+
+      return {
+        ...state, filters: action.currentFilters
+      }
     default:
       return state;
   }
