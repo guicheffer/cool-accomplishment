@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Sidebar from './Sidebar'
-import Wrapper from './Wrapper'
+import Wrapper from '../containers/WrapperContainer'
 
 class Content extends React.Component {
   render() {
@@ -9,7 +9,8 @@ class Content extends React.Component {
       <div className="content spotippos-content row">
 				<Sidebar itemSelected={this.props.itemSelected} />
         {
-          this.props.itemSelected === "announcements" ? <Wrapper /> : ""
+          this.props.itemSelected === "announcements" ?
+          <Wrapper queryFilters={this.props.filters} /> : ""
         }
 			</div>
     )

@@ -8,7 +8,7 @@ class Announcements extends React.Component {
     return (
       <div>
         <Header headerTitle=" - Anúncios" />
-        <Content itemSelected="announcements" />
+        <Content itemSelected="announcements" filters={this.props.location.query} />
       </div>
     )
   }

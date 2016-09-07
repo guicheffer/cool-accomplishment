@@ -5,7 +5,7 @@ export const FETCH_ANNS_SUCCESS = 'FETCH_ANNS_SUCCESS';
 export const FETCH_ANNS_FAILURE = 'FETCH_ANNS_FAILURE';
 
 export function fetchAnns() {
-  const getAnns = get(`?ax=1&ay=1&bx=1400&by=5`);
+  const getAnns = get(`?ax=1&ay=1&bx=100&by=100`);
 
   return {
     type: FETCH_ANNS,
