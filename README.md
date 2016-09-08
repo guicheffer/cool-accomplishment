@@ -87,8 +87,8 @@ O projeto está completamente responsivo porém faltando **BASTANTE** testes par
 	- Stylus
 	- ... PostCSS
     - ... OOCSS
-    - Karma
 	- Webpack
+    - ~~Karma + Nightwatch.js~~
 	- ~~CDN (not settled up)~~
 
 - Primeiramente decidi utilizar as tecnologias em JS justamente pela questão da preferência e conforto em trabalhar no dia a dia com as mesmas por mais que já tenho experienciado frameworks como Angular 1/2 e Meteor.
@@ -99,7 +99,7 @@ O projeto está completamente responsivo porém faltando **BASTANTE** testes par
 
 - Webpack pq é modinha. MENTIRA: a forma de como os pacotes são modularizados e compactados em um bundle realmente me convence a largar os _task runners_ e daí aprendi bastante a maneira de como o Webpack trabalha juntamente as suas rotinas e seus loaders.
 
-- De qualquer forma, fica a dica pra desencargo rs:
+- De qualquer forma, fica a dica pra desencargo 😝  rs:
 
 - > Minha preferência ~~política~~(técnica) é o nada aquém do mínimo ético.
 
@@ -112,8 +112,8 @@ Melhorias [o que não deu tempo lol]
 * ~~Animações UI~~ :ok_hand:
 * ~~Sidebar flutuando~~ :ok_hand:
 * ~~Corrigir warnings React (Caso bem parecido: https://github.com/martyjs/marty/issues/336)~~ :ok_hand:
-* Refatoração do core :hourglass_flowing_sand:
-* Organização das layers do container principal :hourglass_flowing_sand:
+* ~~Organização das layers do container principal~~ :ok_hand:
+* Refatoração do core em js :hourglass_flowing_sand:
 * Testes unitários :hourglass_flowing_sand:
-* Testes de UI :hourglass_flowing_sand:
+* Testes de UI (css) :hourglass_flowing_sand:
 * Testes de stress/sobrecarga (frontend) :-1:

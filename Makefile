@@ -30,7 +30,8 @@ build:
 	npm run start:build
 
 # Be sure on testing
-deploy: test build
+deploy:
+	npm run deploy
 
 gource:
 	@echo "Nenhuma task 'gource' foi configurada"
