@@ -40,6 +40,7 @@
     "deploy": "npm test && npm run start:build",
     "stop": "npm run clean",
     "favicon": "cp src/assets/images/favicon.ico $npm_package_config_path_build",
+    "prestart:dev": "npm run prestart:build",
     "prestart:build": "npm stop && npm run favicon",
     "pretest": "rimraf reports",
     "start": "npm run start:build && npm run serve:prod",
