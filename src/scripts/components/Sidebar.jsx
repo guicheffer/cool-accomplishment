@@ -22,6 +22,7 @@ class Sidebar extends React.Component {
                   >
                     <Link to="/announcements/new" title="Novo anúncio" onClick={e => {
                       e.preventDefault();
+                      alert('🏡 Spotippos diz:\n\n📢 Sorry! Essa feature é imaginária. ✋😞');
                     }}>
                       <span className="icon sprt sprt-plus"></span>
                       Novo anúncio

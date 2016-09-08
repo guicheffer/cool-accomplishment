@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { initFilters, changeFilters, disableChanged } from '../actions/WrapperAction'
+import { initFilters, changeFilters } from '../actions/WrapperAction'
 
 import Wrapper from '../components/Wrapper'
 
@@ -16,9 +16,6 @@ const mapDispatchToProps = dispatch => {
     },
     changeFilters: currentFilters => {
       dispatch(changeFilters(currentFilters))
-    },
-    disableChanged: currentFilters => {
-      dispatch(disableChanged(currentFilters))
     }
   }
 }

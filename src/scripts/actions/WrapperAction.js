@@ -15,10 +15,3 @@ export function changeFilters(currentFilters) {
     currentFilters: currentFilters
   };
 }
-
-export function disableChanged(currentFilters) {
-  return {
-    type: DISABLE_CHANGED,
-    currentFilters: currentFilters
-  }
-}

@@ -1,5 +1,5 @@
 import React from 'react';
-import map from 'lodash/map';
+import _ from 'lodash';
 
 import Header from './Header'
 import Content from './Content'
@@ -11,11 +11,9 @@ class Announcements extends React.Component {
   }
 
   changeQueryFilters(filters) {
-    window.$filters = filters;
-
-    this.router.replace({
+    this.router.push({
       pathname: '/announcements',
-      query: filters
+      query: _.omitBy(_.omitBy(filters, _.isEmpty), _.isBoolean)
     });
   }
 

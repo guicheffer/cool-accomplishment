@@ -23,14 +23,14 @@ class AnnItem extends React.Component {
     const ann = this.props.ann;
 
     return (
-      <li className="ann-item grid">
+      <li key={ann.id} className="ann-item grid">
           <div className="row">
               <figure className="ann-figure col-sm-12 col-md-5">
                   <a href="javascript:void(0)">
                       <img
                           alt={ann.title}
                           className="ann-image"
-                          src="http://goo.gl/MW#jUJa" /*thanks to clickmeter gifs*/
+                          src="http://goo.gl/FCYIKF" /*thanks to clickmeter gifs*/
                       />
                       <figcaption>R$ {parseFloat(ann.price).prettyPrice(2, '.', ',')}</figcaption>
                   </a>

@@ -1,6 +1,7 @@
 import { INIT_FILTERS,
-         CHANGE_FILTERS,
-         DISABLE_CHANGED } from '../actions/WrapperAction'
+         CHANGE_FILTERS } from '../actions/WrapperAction'
+
+import handleOnlyNumbers from '../helpers/partials/handleOnlyNumbers'
 
 const INITIAL_STATE = {filters: {
   id: "",
@@ -8,31 +9,21 @@ const INITIAL_STATE = {filters: {
   beds: "",
   baths: "",
   valMin: "",
-  valMax: "",
-  changed: false
+  valMax: ""
 }};
 
 export default function(state = INITIAL_STATE, action) {
   switch(action.type) {
     case INIT_FILTERS:
       return { ...state, filters: {
-        id: action.initialFilters.id || "",
-        area: action.initialFilters.area || "",
-        beds: action.initialFilters.beds || "",
-        baths: action.initialFilters.baths || "",
-        valMin: action.initialFilters.valMin || "",
-        valMax: action.initialFilters.valMax || "",
-        changed: true
+        id: handleOnlyNumbers(action.initialFilters.id, ""),
+        area: handleOnlyNumbers(action.initialFilters.area, ""),
+        beds: handleOnlyNumbers(action.initialFilters.beds, ""),
+        baths: handleOnlyNumbers(action.initialFilters.baths, ""),
+        valMin: handleOnlyNumbers(action.initialFilters.valMin, ""),
+        valMax: handleOnlyNumbers(action.initialFilters.valMax, "")
       } };
     case CHANGE_FILTERS:
-      action.currentFilters.changed = true
-
-      return {
-        ...state, filters: action.currentFilters
-      }
-    case DISABLE_CHANGED:
-      action.currentFilters.changed = false
-
       return {
         ...state, filters: action.currentFilters
       }

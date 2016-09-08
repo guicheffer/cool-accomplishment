@@ -1,7 +1,18 @@
 import React from 'react'
-import { Link } from 'react-router';
+import { Link } from 'react-router'
+import numeral from 'numeral'
+
+import handleOnlyNumbers from '../helpers/partials/handleOnlyNumbers'
 
 class Filter extends React.Component {
+  constructor(props, state) {
+    super(props);
+    this.state = {
+      ...state,
+      errorMsg: null
+    }
+  }
+
   componentDidMount() {
     const containerFilter = this.nodeScroll;
     const wrapperPage = document.querySelector('.wrapper-page');
@@ -11,14 +22,43 @@ class Filter extends React.Component {
     });
   }
 
-  handleFieldChange(e) {
-    this.props.handleFilters({
-      id: this.nodeId.value,
-      area: this.nodeArea.value,
-      beds: this.nodeBeds.value,
-      baths: this.nodeBaths.value,
-      valMin: this.nodeValMin.value,
-      valMax: this.nodeValMax.value
+  handleKeyDownNumbers(e) {
+    if (e.which !== 8 && //backspace
+        e.which !== 0 && //delete
+        e.which !== 13 && //enter
+        e.which !== 91 && e.which !== 93 && //safari, chrome (c.a.s.)
+        e.which !== 17 && e.which !== 224 && //opera, firefox (c.a.s.)
+        !(e.which >= 37 && e.which <= 40) && //arrows
+        !e.ctrlKey &&
+        !e.altKey &&
+        !e.shiftKey &&
+        (e.which < 48 || e.which > 57)) {
+      e.target.style.outline = 'var(--errorColor) auto 4px';
+      this.setState({errorMsg: 'Opa, este campo só aceita números!'});
+    } else {
+      e.target.style.outline = '';
+      this.setState({errorMsg: null});
+    }
+  }
+
+  handleFiltersURL() {
+    this.props.updateFiltersURL(this.props.filters);
+  }
+
+  handleFieldChange() {
+    const filters = this.props.filters;
+
+    this.props.handleChangeFilters({
+      id: handleOnlyNumbers(this.nodeId.value, filters.id),
+      area: handleOnlyNumbers(this.nodeArea.value, filters.area),
+      beds: handleOnlyNumbers(this.nodeBeds.value, filters.beds),
+      baths: handleOnlyNumbers(this.nodeBaths.value, filters.baths),
+      valMin: handleOnlyNumbers(
+        this.nodeValMin.value.replace(/\,|\.|\$|R|\s/gi, ''), filters.valMin
+      ),
+      valMax: handleOnlyNumbers(
+        this.nodeValMax.value.replace(/\,|\.|\$|R|\s/gi, ''), filters.valMax
+      )
     });
   }
 
@@ -29,6 +69,7 @@ class Filter extends React.Component {
 				<section className="page-box col-xs-12 col-sm-12 col-md-4">
 						<div className="container container-filter" ref={node => {this.nodeScroll = node}}>
 								<h3 className="title">Filtro</h3>
+                <p className="errorMsg">{this.state.errorMsg}</p>
 
 								<form
 										className="form form-filters col-xs-12"
@@ -41,18 +82,30 @@ class Filter extends React.Component {
 										<div className="form-row">
 												<div className="form-group form-field-id">
 														<label htmlFor="id">ID</label>
-														<input onChange={e => {
-                              this.handleFieldChange(e);
-                            }} ref={node=>{this.nodeId = node}}
-                              id="id" placeholder=""
+														<input
+                              ref={node=>{this.nodeId = node}}
+                              onChange={this.handleFieldChange.bind(this)}
+                              onBlur={e=>{
+                                e.target.style.outline = '';
+                                this.setState({errorMsg: null});
+                                this.handleFiltersURL();
+                              }}
+                              onKeyDown={e=>{this.handleKeyDownNumbers(e)}}
+                              id="id" placeholder="ID Único"
                               value={filters.id} type="tel"
                             />
 												</div>
 												<div className="form-group form-field-area">
 														<label htmlFor="area">Área</label>
-														<input onChange={e => {
-                              this.handleFieldChange(e);
-                            }} ref={node=>{this.nodeArea = node}}
+														<input
+                              ref={node=>{this.nodeArea = node}}
+                              onChange={this.handleFieldChange.bind(this)}
+                              onBlur={e=>{
+                                e.target.style.outline = '';
+                                this.setState({errorMsg: null});
+                                this.handleFiltersURL();
+                              }}
+                              onKeyDown={e=>{this.handleKeyDownNumbers(e)}}
                               id="area" placeholder=""
                               value={filters.area} type="tel"
                             disabled={filters.id ? "disabled" : ""}
@@ -62,9 +115,15 @@ class Filter extends React.Component {
 										<div className="form-row">
 												<div className="form-group form-field-rooms">
 														<label htmlFor="rooms">Quartos</label>
-														<input onChange={e => {
-                              this.handleFieldChange(e);
-                            }} ref={node=>{this.nodeBeds = node}}
+														<input
+                              ref={node=>{this.nodeBeds = node}}
+                              onChange={this.handleFieldChange.bind(this)}
+                              onBlur={e=>{
+                                e.target.style.outline = '';
+                                this.setState({errorMsg: null});
+                                this.handleFiltersURL();
+                              }}
+                              onKeyDown={e=>{this.handleKeyDownNumbers(e)}}
                               id="rooms" placeholder=""
                               value={filters.beds} type="tel"
                             disabled={filters.id ? "disabled" : ""}
@@ -72,9 +131,15 @@ class Filter extends React.Component {
 												</div>
 												<div className="form-group form-field-baths">
 														<label htmlFor="baths">Banheiros</label>
-														<input onChange={e => {
-                              this.handleFieldChange(e);
-                            }} ref={node=>{this.nodeBaths = node}}
+														<input
+                              ref={node=>{this.nodeBaths = node}}
+                              onChange={this.handleFieldChange.bind(this)}
+                              onBlur={e=>{
+                                e.target.style.outline = '';
+                                this.setState({errorMsg: null});
+                                this.handleFiltersURL();
+                              }}
+                              onKeyDown={e=>{this.handleKeyDownNumbers(e)}}
                               id="baths" placeholder=""
                               value={filters.baths} type="tel"
                             disabled={filters.id ? "disabled" : ""}
@@ -84,19 +149,31 @@ class Filter extends React.Component {
 										<div className="form-row">
 												<div className="form-group form-field-value between-count">
 														<label htmlFor="valMin">Valor</label>
-														<input onChange={e => {
-                              this.handleFieldChange(e);
-                            }} ref={node=>{this.nodeValMin = node}}
+														<input
+                              ref={node=>{this.nodeValMin = node}}
+                              onChange={this.handleFieldChange.bind(this)}
+                              onBlur={e=>{
+                                e.target.style.outline = '';
+                                this.setState({errorMsg: null});
+                                this.handleFiltersURL();
+                              }}
+                              onKeyDown={e=>{this.handleKeyDownNumbers(e)}}
                               id="valMin" placeholder="Mínimo"
-                              value={filters.valMin} type="tel"
+                              value={"R$ " + numeral(filters.valMin).format('0,0')} type="tel"
                             disabled={filters.id ? "disabled" : ""}
                             />
 														<span className="icon itself"></span>
-														<input onChange={e => {
-                              this.handleFieldChange(e);
-                            }} ref={node=>{this.nodeValMax = node}}
+														<input
+                              ref={node=>{this.nodeValMax = node}}
+                              onChange={this.handleFieldChange.bind(this)}
+                              onBlur={e=>{
+                                e.target.style.outline = '';
+                                this.setState({errorMsg: null});
+                                this.handleFiltersURL();
+                              }}
+                              onKeyDown={e=>{this.handleKeyDownNumbers(e)}}
                               id="valMax" placeholder="Máximo"
-                              value={filters.valMax} type="tel"
+                              value={"R$ " + numeral(filters.valMax).format('0,0')} type="tel"
                             disabled={filters.id ? "disabled" : ""}
                             />
 												</div>
