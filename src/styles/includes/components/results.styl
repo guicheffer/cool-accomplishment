@@ -53,6 +53,10 @@ $info-card-width = 25%
       height 20vw
       height remify(240px)
       background-color $black
+
+      &:hover
+        .ann-image
+          opacity 0.6
       .ann-image
         object-fit cover
         width 100%
@@ -60,9 +64,6 @@ $info-card-width = 25%
         height remify(300px)
         transform translateY(-20%)
         transition opacity .3s ease-in-out
-
-        &:hover
-          opacity 0.6
       figcaption
         position absolute
         bottom 0

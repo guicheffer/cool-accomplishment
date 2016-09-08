@@ -11,7 +11,20 @@
   ============================================================================*/
 
 .container-filter
+  $local-spacing = $page-box-padding
+
   position relative
+
+  .title
+    padding $local-spacing
+    padding-bottom 0
+  .errorMsg
+    top 0
+    right 0
+    position absolute
+    font-size remify(12px)
+    color var(--errorColor)
+    margin $local-spacing
 
 .form-group
   $local-input-height = 36px
@@ -36,6 +49,10 @@
     font-size remify($local-input-height / 3)
     font-weight normal
     padding-left remify(5px)
+    transition background .2s linear
+    &[disabled]
+      background $gray-blur
+      filter blur(1px)
 .btn
   min-width remify(20px)
   height remify(32px)

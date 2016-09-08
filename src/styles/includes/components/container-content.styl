@@ -19,6 +19,30 @@ $container-results-min-height = $sidebar-height
   padding-top remify($halfrem * 2)
   height $sidebar-height
 
+.dashboard
+  cursor default
+  line-height remify(50px)
+  padding remify(20px)
+  position relative
+  .centralize-middle
+    position absolute
+    top 45%
+    left 50%
+    transform translate(-50%, -50%)
+  h3
+    color $dashboard-color-default
+    font-size remify(24px)
+    line-height remify(25px)
+
+    small
+      font-size remify(16px)
+      font-weight normal
+  p
+    margin-top remify(10px)
+    font-style italic
+    font-size remify(12px)
+    line-height remify(20px)
+
 .wrapper-page
   padding remify($halfrem * 4) remify($halfrem * 2)
   margin 0
@@ -40,9 +64,6 @@ $container-results-min-height = $sidebar-height
     border-radius remify(2px)
     box-shadow 0 remify(2px) remify(4px) 0 rgba(0, 0, 0, 0.12)
     box-sizing border-box
-  .title
-    padding $local-padding
-    padding-bottom 0
   .form-row
     border-bottom solid 1px rgba(0, 0, 0, 0.1)
     padding $local-padding
