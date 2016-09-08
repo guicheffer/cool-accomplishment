@@ -76,7 +76,7 @@ Observações
 
 :arrow_up: *that explains me to take a little while.* **_lol_**
 
-O projeto está completamente responsivo porém faltando **BASTANTE** testes para que o deploy fique seguro antes de subir e que as funcionalidades sejam livres de bugs. Porém me preocupei bastante com a experiência do usuário na plataforma através do layout fornecido até que certo ponto poderíamos ainda mais preencher com informações relevantes que não virão, inicialmente, fazer parte do sistema. Portanto listei tecnicamente o que achei que poderia ser útil:
+O projeto está completamente responsivo porém faltando **BASTANTE** testes para que o deploy fique seguro antes de subir e que as funcionalidades sejam livres de bugs (sou um mero aprendiz em testes automatizados em frontend). Porém me preocupei bastante com a experiência do usuário na plataforma através do layout fornecido até que certo ponto poderíamos ainda mais preencher com informações relevantes que não virão, inicialmente, fazer parte do sistema. Portanto listei tecnicamente o que achei que poderia ser útil:
 
 - Optei por utilizar as seguintes tecnologias abaixo (calma, explicarei o porquê 😝)
 
