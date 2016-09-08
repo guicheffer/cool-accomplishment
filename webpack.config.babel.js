@@ -105,6 +105,7 @@ let config = {
     }),
     new HtmlWebpackPlugin({
       title: pkg.name,
+      themeColor: pkg.themeColor,
       inject: false,
       minify: {
         collapseInlineTagWhitespace: true,
