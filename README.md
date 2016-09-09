@@ -78,8 +78,6 @@ Observações
 
 O projeto está completamente responsivo porém faltando **BASTANTE** testes para que o deploy fique seguro antes de subir e que as funcionalidades sejam livres de bugs (sou um mero aprendiz em testes automatizados em frontend). Porém me preocupei bastante com a experiência do usuário na plataforma através do layout fornecido até que certo ponto poderíamos ainda mais preencher com informações relevantes que não virão, inicialmente, fazer parte do sistema. Portanto listei tecnicamente o que achei que poderia ser útil:
 
-- Primeiramente me desculpo por não conseguir ter finalizado: os testes e a chamada do _endpoint_ do filtro por ID (não consigo finalizar a tempo)
-
 - Optei por utilizar as seguintes tecnologias abaixo (calma, explicarei o porquê 😝)
 
 	- React.js (from facebook)
