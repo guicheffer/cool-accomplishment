@@ -31,7 +31,6 @@ class Filter extends React.Component {
   handleKeyDownNumbers(e) {
     if (e.which !== 8 && //backspace
         e.which !== 0 && //delete
-        e.which !== 13 && //enter
         e.which !== 91 && e.which !== 93 && //safari, chrome (c.a.s.)
         e.which !== 17 && e.which !== 224 && //opera, firefox (c.a.s.)
         !(e.which >= 37 && e.which <= 40) && //arrows
@@ -81,7 +80,7 @@ class Filter extends React.Component {
 										className="form form-filters col-xs-12"
 										method="get"
 										onSubmit={e => {
-											e.preventDefault();
+                      e.preventDefault();
 										}}
 										noValidate
 								>
@@ -96,7 +95,12 @@ class Filter extends React.Component {
                                 this.setState({errorMsg: null});
                                 this.handleFiltersURL();
                               }}
-                              onKeyDown={e=>{this.handleKeyDownNumbers(e)}}
+                              onKeyDown={e=>{
+                                if (e.which===13){
+                                  if (filters.id!=='')
+                                  this.props.handleSearchID(filters.id)
+                                }
+                              }}
                               id="id" placeholder="ID Único"
                               value={filters.id} type="tel"
                             />
@@ -184,6 +188,13 @@ class Filter extends React.Component {
                             />
 												</div>
 										</div>
+
+                    {filters.id ?
+                      <p className="warning warning-enter">
+                        ➕ A pesquisa por ID procura primeiramente nos anúncios pré-indexados; <br/>
+                        ❗️ Pressione ⏎ <span>Enter</span> para pesquisar por ID no banco de dados.
+                      </p> : ''
+                    }
 								</form>
 						</div>
 				</section>

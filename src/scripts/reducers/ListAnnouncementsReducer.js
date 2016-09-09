@@ -1,13 +1,9 @@
 import {
   FETCH_ANNS,
-  FETCH_ANNS_SUCCESS, FETCH_ANNS_FAILURE,
-  FETCH_ANN_BY_ID,
-  FETCH_ANN_BY_ID_SUCCESS,
-  FETCH_ANN_BY_ID_FAILURE } from '../actions/ListAnnouncementsAction'
+  FETCH_ANNS_SUCCESS, FETCH_ANNS_FAILURE } from '../actions/ListAnnouncementsAction'
 
 const INITIAL_STATE = {
-  annsList: { anns: [], loading: true, error: false },
-  annByID: { ann: [], loading: true, error: false }
+  annsList: { anns: [], loading: true, error: false }
 };
 
 export default function(state = INITIAL_STATE, action) {
@@ -26,21 +22,6 @@ export default function(state = INITIAL_STATE, action) {
       return {
         ...state,
         annsList: { anns: [], loading: false, error: true }
-      };
-    case FETCH_ANN_BY_ID:
-      return {
-        ...state,
-        annByID: { ann: [], loading: true }
-      };
-    case FETCH_ANN_BY_ID_SUCCESS:
-      return {
-        ...state,
-        annByID: { ann: action.payload.data, loading: false }
-      };
-    case FETCH_ANN_BY_ID_FAILURE:
-      return {
-        ...state,
-        annByID: { ann: [], loading: false, error: true }
       };
     default:
       return state;

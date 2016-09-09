@@ -1,5 +1,8 @@
 import { INIT_FILTERS,
-         CHANGE_FILTERS } from '../actions/WrapperAction'
+         CHANGE_FILTERS,
+         FETCH_ANN_BY_ID,
+         FETCH_ANN_BY_ID_SUCCESS,
+         FETCH_ANN_BY_ID_FAILURE } from '../actions/WrapperAction'
 
 import handleOnlyNumbers from '../helpers/partials/handleOnlyNumbers'
 
@@ -10,7 +13,7 @@ const INITIAL_STATE = {filters: {
   baths: "",
   valMin: "",
   valMax: ""
-}};
+}, annByID: { ann: [], loading: true, error: false }};
 
 export default function(state = INITIAL_STATE, action) {
   switch(action.type) {
@@ -27,6 +30,21 @@ export default function(state = INITIAL_STATE, action) {
       return {
         ...state, filters: action.currentFilters
       }
+    case FETCH_ANN_BY_ID:
+      return {
+        ...state,
+        annByID: { ann: [], loading: true }
+      };
+    case FETCH_ANN_BY_ID_SUCCESS:
+      return {
+        ...state,
+        annByID: { ann: action.payload.data, loading: false }
+      };
+    case FETCH_ANN_BY_ID_FAILURE:
+      return {
+        ...state,
+        annByID: { ann: [], loading: false, error: true }
+      };
     default:
       return state;
   }

@@ -8,29 +8,6 @@ class ListAnnouncements extends React.Component {
     this.props.fetchAnns();
   }
 
-  shouldComponentUpdate(nextProps) {
-    if (this.props.filters.id !== "") {
-      if (typeof this.results.dataset.showingId !== 'undefined') {
-        if (this.results.dataset.showingId ==
-            nextProps.filters.id) {
-          return false;
-        } else {
-          return true;
-        }
-      } else {
-        return false;
-      }
-    } else {
-      return true;
-    }
-  }
-
-  componentDidUpdate() {
-    if (this.props.filters.id !== "") {
-      this.props.fetchAnnByID(this.props.filters.id);
-    }
-  }
-
   renderAnnouncements(anns, error) {
     const warningMsgStyle = {'textAlign': 'center', 'marginTop': '5%'}
 
@@ -57,6 +34,11 @@ class ListAnnouncements extends React.Component {
   filterAnns(anns, filters) {
     _.forEach(filters, (val, key) => {
       switch (key) {
+        case "id": /*in case ID wasn't fetch yet*/
+          anns = _.filter(anns, property => {
+            return property.id == val;
+          })
+          break;
         case "area":
           anns = _.filter(anns, property => {
             return property.squareMeters == val;
@@ -104,20 +86,18 @@ class ListAnnouncements extends React.Component {
     if (this.props.filters.id !== "") {
       const { ann, loading, error } = this.props.annByID;
       filteredAnns = ann;
+
+      if (this.props.filters.id !== filteredAnns.id &&
+          typeof filteredAnns.id !== 'undefined') {
+        filteredAnns = this.filterAnns(anns, filters);
+      }
     } else {
       filteredAnns = this.filterAnns(anns, filters);
     }
 
     return (
       <section className="page-box col-xs-12 col-sm-12 col-md-8">
-        <div
-          className={ "container container-results" + ( loading ? " loading" : "" ) }
-          ref={node => {this.results = node;}}
-          data-showing-id={
-            typeof filteredAnns.id !== 'undefined' && !loading ?
-            filteredAnns.id : (filters.id !== '' && !loading ? 'null' : '')
-          }
-        >
+        <div className={ "container container-results" + ( loading ? " loading" : "" ) }>
           { loading ? <span className="icon icon-loader"></span> :
             this.renderAnnouncements(filteredAnns, error)
           }
