@@ -30,7 +30,7 @@ class AnnItem extends React.Component {
                       <img
                           alt={ann.title}
                           className="ann-image"
-                          src="http://goo.gl/FC#YIKF" /*thanks to clickmeter gifs*/
+                          src="http://goo.gl/FCYIKF" /*thanks to clickmeter gifs*/
                       />
                       <figcaption>R$ {parseFloat(ann.price).prettyPrice(2, '.', ',')}</figcaption>
                   </a>
