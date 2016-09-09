@@ -1,6 +1,6 @@
 # Spotippos
 
-Teste em produção (uat) http://spotippos-guicheffer.herokuapp.com/
+Teste em produção http://spotippos-guicheffer.herokuapp.com/
 
 Resolução do teste https://github.com/VivaReal/code-challenge/blob/master/frontend.md
 
@@ -49,7 +49,7 @@ ou
 npm start
 ```
 
-Heroku
+Heroku (Server)
 ------
 Se você quiser diretamente aplicar em um novo bucket no Heroku este projeto, clique abaixo:
 
@@ -82,7 +82,8 @@ O projeto está completamente responsivo porém faltando **BASTANTE** testes par
 
 	- React.js (from facebook)
 	- Redux.js (from React thing)
-    - immutable/lodash for objects
+    - lodash for immutable objects
+    - functional programming
 	- ... w/ es6 (using babel)
 	- Stylus
 	- ... PostCSS
