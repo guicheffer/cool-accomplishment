@@ -17,9 +17,15 @@ class Filter extends React.Component {
     const containerFilter = this.nodeScroll;
     const wrapperPage = document.querySelector('.wrapper-page');
 
+    // Add event scroll on wrapper
     wrapperPage.addEventListener('scroll', function(e){
       containerFilter.style.padding = `${this.scrollTop}px 0 0 0`;
     });
+
+    //Focus if there is a ID filtering selected
+    if (this.props.filters.id !== '') {
+      this.nodeId.focus();
+    }
   }
 
   handleKeyDownNumbers(e) {

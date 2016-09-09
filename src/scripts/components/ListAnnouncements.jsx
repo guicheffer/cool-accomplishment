@@ -8,6 +8,29 @@ class ListAnnouncements extends React.Component {
     this.props.fetchAnns();
   }
 
+  shouldComponentUpdate(nextProps) {
+    if (this.props.filters.id !== "") {
+      if (typeof this.results.dataset.showingId !== 'undefined') {
+        if (this.results.dataset.showingId ==
+            nextProps.filters.id) {
+          return false;
+        } else {
+          return true;
+        }
+      } else {
+        return false;
+      }
+    } else {
+      return true;
+    }
+  }
+
+  componentDidUpdate() {
+    if (this.props.filters.id !== "") {
+      this.props.fetchAnnByID(this.props.filters.id);
+    }
+  }
+
   renderAnnouncements(anns, error) {
     const warningMsgStyle = {'textAlign': 'center', 'marginTop': '5%'}
 
@@ -15,16 +38,16 @@ class ListAnnouncements extends React.Component {
       return <p style={warningMsgStyle}>
               Por favor, tente novamente. &nbsp;&nbsp; 😐
              </p>
-    } else if (!anns.length) {
+    } else if (!_.size(anns)) {
       return <p style={warningMsgStyle}>
         💩 &nbsp;&nbsp; Nenhum resultado de anúncio encontrado.
       </p>
     } else {
       return (
         <ul className="results-anns">
-          { _.map(anns, ann => {
+          { anns.length ? _.map(anns, ann => {
             return <AnnItem key={ann.id} ann={ann}/>
-            })
+            }) : <AnnItem key={anns.id} ann={anns}/>
           }
         </ul>
       )
@@ -64,11 +87,6 @@ class ListAnnouncements extends React.Component {
                    parseFloat(property.price) <= parseFloat(filters.valMax);
           }
           break;
-        case "id": /*TEMPORARY CASE 😞😳😩*/
-          anns = _.filter(anns, property => {
-            return property.id == val;
-          })
-          break;
         default:
           return false;
       }
@@ -81,11 +99,25 @@ class ListAnnouncements extends React.Component {
     const { anns, loading, error } = this.props.annsList;
     const filters = _.omitBy(this.props.filters, _.isEmpty);
 
-    let filteredAnns = this.filterAnns(anns, filters);
+    let filteredAnns = [];
+
+    if (this.props.filters.id !== "") {
+      const { ann, loading, error } = this.props.annByID;
+      filteredAnns = ann;
+    } else {
+      filteredAnns = this.filterAnns(anns, filters);
+    }
 
     return (
       <section className="page-box col-xs-12 col-sm-12 col-md-8">
-        <div className={ "container container-results" + ( loading ? " loading" : "" ) }>
+        <div
+          className={ "container container-results" + ( loading ? " loading" : "" ) }
+          ref={node => {this.results = node;}}
+          data-showing-id={
+            typeof filteredAnns.id !== 'undefined' && !loading ?
+            filteredAnns.id : (filters.id !== '' && !loading ? 'null' : '')
+          }
+        >
           { loading ? <span className="icon icon-loader"></span> :
             this.renderAnnouncements(filteredAnns, error)
           }
