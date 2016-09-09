@@ -34,11 +34,6 @@ class ListAnnouncements extends React.Component {
   filterAnns(anns, filters) {
     _.forEach(filters, (val, key) => {
       switch (key) {
-        case "id": /*in case ID wasn't fetch yet*/
-          anns = _.filter(anns, property => {
-            return property.id == val;
-          })
-          break;
         case "area":
           anns = _.filter(anns, property => {
             return property.squareMeters == val;
@@ -65,8 +60,10 @@ class ListAnnouncements extends React.Component {
               return parseFloat(property.price) >= parseFloat(filters.valMin);
             })
           } else {
-            return parseFloat(property.price) >= parseFloat(filters.valMin) &&
-                   parseFloat(property.price) <= parseFloat(filters.valMax);
+            anns = _.filter(anns, property => {
+              return parseFloat(property.price) >= parseFloat(filters.valMin) &&
+                     parseFloat(property.price) <= parseFloat(filters.valMax);
+            })
           }
           break;
         default:
@@ -87,9 +84,11 @@ class ListAnnouncements extends React.Component {
       const { ann, loading, error } = this.props.annByID;
       filteredAnns = ann;
 
-      if (this.props.filters.id !== filteredAnns.id &&
-          typeof filteredAnns.id !== 'undefined') {
-        filteredAnns = this.filterAnns(anns, filters);
+      if (this.props.filters.id !== filteredAnns.id ||
+          typeof filteredAnns.id === 'undefined') {
+        filteredAnns = _.filter(anns, property => {
+          return property.id == this.props.filters.id;
+        });
       }
     } else {
       filteredAnns = this.filterAnns(anns, filters);
