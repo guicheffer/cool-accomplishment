@@ -87,7 +87,7 @@ O projeto está completamente responsivo porém faltando **BASTANTE** testes par
 	- ... w/ es6 (using babel)
 	- Stylus
 	- ... PostCSS
-    - ... OOCSS
+    - ... OOCSS + Self organizing
 	- Webpack
     - ~~Karma + Nightwatch.js~~
 	- ~~CDN (not settled up)~~
