@@ -1,6 +1,8 @@
 import React from 'react';
 import _ from 'lodash';
 
+import getText from '../helpers/i18n'
+
 import Header from './Header'
 import Content from './Content'
 
@@ -20,7 +22,7 @@ class Announcements extends React.Component {
   render() {
     return (
       <div>
-        <Header headerTitle=" - Anúncios" />
+        <Header headerTitle={ " - " + getText('announcements')} />
         <Content
           itemSelected="announcements"
           filters={this.props.location.query}

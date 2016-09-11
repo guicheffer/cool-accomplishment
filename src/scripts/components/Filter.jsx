@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router'
 import numeral from 'numeral'
 
+import getText from '../helpers/i18n'
 import handleOnlyNumbers from '../helpers/partials/handleOnlyNumbers'
 
 class Filter extends React.Component {
@@ -28,25 +29,43 @@ class Filter extends React.Component {
     }
   }
 
-  handleKeyDownNumbers(e) {
-    if (e.which !== 8 && //backspace
-        e.which !== 0 && //delete
-        e.which !== 91 && e.which !== 93 && //safari, chrome (c.a.s.)
-        e.which !== 17 && e.which !== 224 && //opera, firefox (c.a.s.)
-        !(e.which >= 37 && e.which <= 40) && //arrows
-        !e.ctrlKey &&
-        !e.altKey &&
-        !e.shiftKey &&
-        (e.which < 48 || e.which > 57)) {
-      e.target.style.outline = 'var(--errorColor) auto 4px';
-      this.setState({errorMsg: 'Opa, este campo só aceita números!'});
+  getStyleError() {
+    return 'var(--errorColor) auto 4px';
+  }
+
+  compareMinMaxVals(e) {
+    if ( ( this.nodeValMin.value !== '' && this.nodeValMax.value ) &&
+        !(parseFloat(this.nodeValMin.value.replace(/\,|\.|\$|R|\s/gi, '')) <=
+          parseFloat(this.nodeValMax.value.replace(/\,|\.|\$|R|\s/gi, ''))) ) {
+      e.target.style.outline = this.getStyleError();
+      this.setState(
+        {errorMsg: getText('error-valMinLessMax')}
+      );
     } else {
       e.target.style.outline = '';
       this.setState({errorMsg: null});
     }
   }
 
-  handleFiltersURL() {
+  handleKeyDownNumbers(e) {
+    if (e.which !== 8 && //backspace
+        e.which !== 0 && //delete
+        !(e.which >= 37 && e.which <= 40) && //arrows
+        e.which !== 91 && e.which !== 93 && //safari, chrome (ctrl pads)
+        e.which !== 17 && e.which !== 224 && //opera, firefox (ctrl pads)
+        !e.ctrlKey && !e.altKey && !e.shiftKey && //ctrl pads
+        (e.which < 48 || e.which > 57)) { //for sure: numerals
+      e.target.style.outline = this.getStyleError();
+      this.setState({errorMsg: getText('error-onlyNumbers')});
+    } else {
+      e.target.style.outline = '';
+      this.setState({errorMsg: null});
+    }
+  }
+
+  handleFiltersURL(e) {
+    e.target.style.outline = '';
+    this.setState({errorMsg: null});
     this.props.updateFiltersURL(this.props.filters);
   }
 
@@ -77,23 +96,22 @@ class Filter extends React.Component {
                 <p className="errorMsg">{this.state.errorMsg}</p>
 
 								<form
-										className="form form-filters col-xs-12"
-										method="get"
-										onSubmit={e => {
-                      e.preventDefault();
-										}}
-										noValidate
+									className="form form-filters col-xs-12"
+									method="get"
+									onSubmit={e => {
+                    e.preventDefault();
+									}}
+									noValidate
 								>
-										<div className="form-row">
+										<fieldset className="form-row">
 												<div className="form-group form-field-id">
 														<label htmlFor="id">ID</label>
 														<input
                               ref={node=>{this.nodeId = node}}
+                              tabIndex="1"
                               onChange={this.handleFieldChange.bind(this)}
                               onBlur={e=>{
-                                e.target.style.outline = '';
-                                this.setState({errorMsg: null});
-                                this.handleFiltersURL();
+                                this.handleFiltersURL(e);
                               }}
                               onKeyDown={e=>{
                                 if (e.which===13){
@@ -101,37 +119,36 @@ class Filter extends React.Component {
                                   this.props.handleSearchID(filters.id)
                                 }
                               }}
-                              id="id" placeholder="ID Único"
-                              value={filters.id} type="tel"
+                              id="id" placeholder={getText('label-uniqueId')}
+                              value={filters.id} type="text"
                             />
 												</div>
 												<div className="form-group form-field-area">
-														<label htmlFor="area">Área</label>
+														<label htmlFor="area">{getText('label-area')}</label>
 														<input
                               ref={node=>{this.nodeArea = node}}
+                              tabIndex="2"
                               onChange={this.handleFieldChange.bind(this)}
                               onBlur={e=>{
-                                e.target.style.outline = '';
-                                this.setState({errorMsg: null});
-                                this.handleFiltersURL();
+                                this.handleFiltersURL(e);
                               }}
                               onKeyDown={e=>{this.handleKeyDownNumbers(e)}}
-                              id="area" placeholder=""
+                              id="area"
+                              placeholder={getText('in') + " " + getText('unit-currencyBR')}
                               value={filters.area} type="tel"
                             disabled={filters.id ? "disabled" : ""}
                             />
 												</div>
-										</div>
-										<div className="form-row">
+										</fieldset>
+										<fieldset className="form-row">
 												<div className="form-group form-field-rooms">
-														<label htmlFor="rooms">Quartos</label>
+														<label htmlFor="rooms">{getText('label-bedrooms')}</label>
 														<input
                               ref={node=>{this.nodeBeds = node}}
+                              tabIndex="3"
                               onChange={this.handleFieldChange.bind(this)}
                               onBlur={e=>{
-                                e.target.style.outline = '';
-                                this.setState({errorMsg: null});
-                                this.handleFiltersURL();
+                                this.handleFiltersURL(e);
                               }}
                               onKeyDown={e=>{this.handleKeyDownNumbers(e)}}
                               id="rooms" placeholder=""
@@ -140,14 +157,13 @@ class Filter extends React.Component {
                             />
 												</div>
 												<div className="form-group form-field-baths">
-														<label htmlFor="baths">Banheiros</label>
+														<label htmlFor="baths">{getText('label-bathrooms')}</label>
 														<input
                               ref={node=>{this.nodeBaths = node}}
+                              tabIndex="4"
                               onChange={this.handleFieldChange.bind(this)}
                               onBlur={e=>{
-                                e.target.style.outline = '';
-                                this.setState({errorMsg: null});
-                                this.handleFiltersURL();
+                                this.handleFiltersURL(e);
                               }}
                               onKeyDown={e=>{this.handleKeyDownNumbers(e)}}
                               id="baths" placeholder=""
@@ -155,44 +171,57 @@ class Filter extends React.Component {
                             disabled={filters.id ? "disabled" : ""}
                             />
 												</div>
-										</div>
-										<div className="form-row">
+										</fieldset>
+										<fieldset className="form-row">
 												<div className="form-group form-field-value between-count">
-														<label htmlFor="valMin">Valor</label>
+														<label htmlFor="valMin">{getText('label-price')}</label>
 														<input
                               ref={node=>{this.nodeValMin = node}}
-                              onChange={this.handleFieldChange.bind(this)}
+                              tabIndex="5"
+                              onChange={e => {
+                                this.handleFieldChange();
+                                this.compareMinMaxVals(e);
+                              }}
                               onBlur={e=>{
-                                e.target.style.outline = '';
-                                this.setState({errorMsg: null});
-                                this.handleFiltersURL();
+                                this.handleFiltersURL(e);
                               }}
                               onKeyDown={e=>{this.handleKeyDownNumbers(e)}}
-                              id="valMin" placeholder="Mínimo"
-                              value={"R$ " + numeral(filters.valMin).format('0,0')} type="tel"
+                              id="valMin" placeholder={getText('label-priceMin')}
+                              value={
+                                filters.valMin != 0 ?
+                                (getText('unit-currencyBR') + " " +
+                                numeral(filters.valMin).format('0,0')) : ""
+                              } type="tel"
                             disabled={filters.id ? "disabled" : ""}
                             />
 														<span className="icon itself"></span>
 														<input
                               ref={node=>{this.nodeValMax = node}}
-                              onChange={this.handleFieldChange.bind(this)}
+                              tabIndex="6"
+                              onChange={e => {
+                                this.handleFieldChange();
+                                this.compareMinMaxVals(e);
+                              }}
                               onBlur={e=>{
-                                e.target.style.outline = '';
-                                this.setState({errorMsg: null});
-                                this.handleFiltersURL();
+                                this.handleFiltersURL(e);
                               }}
                               onKeyDown={e=>{this.handleKeyDownNumbers(e)}}
-                              id="valMax" placeholder="Máximo"
-                              value={"R$ " + numeral(filters.valMax).format('0,0')} type="tel"
+                              id="valMax" placeholder={getText('label-priceMax')}
+                              value={
+                                filters.valMax !=0 ?
+                                (getText('unit-currencyBR') + " " +
+                                numeral(filters.valMax).format('0,0')) : ""
+                              } type="tel"
                             disabled={filters.id ? "disabled" : ""}
                             />
 												</div>
-										</div>
+										</fieldset>
 
                     {filters.id ?
                       <p className="warning warning-enter">
-                        ➕ A pesquisa por ID procura primeiramente nos anúncios pré-indexados; <br/>
-                        ❗️ Pressione ⏎ <span>Enter</span> para pesquisar por ID no banco de dados.
+                        {getText('warning-databaseSearch')}
+                        <br/>
+                        {getText('warning-pressEnter')}
                       </p> : ''
                     }
 								</form>

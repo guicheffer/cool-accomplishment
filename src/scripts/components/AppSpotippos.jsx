@@ -6,7 +6,7 @@ import createHashHistory from 'history/lib/createHashHistory';
 import configureStore from '../store/configureStore';
 import reducers from '../reducers/AppSpotipposReducer';
 
-import RootNoOptionSelected from '../containers/RootNoOptionSelectedContainer';
+import RootNoOptionSelected from '../components/RootNoOptionSelected';
 import Announcements from '../components/Announcements';
 
 const store = configureStore(reducers);

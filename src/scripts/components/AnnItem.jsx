@@ -1,24 +1,14 @@
 import React from 'react'
+import numeral from 'numeral'
 
-/*
-  inspired on http://stackoverflow.com/questions/149055/how-can-i-format-numbers-as-money-in-javascript#149099
-*/
-Number.prototype.prettyPrice = function(c, d, t){
-  var n = this,
-    c = isNaN(c = Math.abs(c)) ? 2 : c,
-    d = d == undefined ? "." : d,
-    t = t == undefined ? "," : t,
-    s = n < 0 ? "-" : "",
-    i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "",
-    j = (j = i.length) > 3 ? j % 3 : 0;
-
-   return s +
-          (j ? i.substr(0, j) + t : "") +
-          i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t)
-          + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
-}
+import getText from '../helpers/i18n'
 
 class AnnItem extends React.Component {
+  /*thanks to clickmeter gifs*/
+  getImgTest() {
+    return "http://goo.gl/FCYIKF";
+  }
+
   render() {
     const ann = this.props.ann;
 
@@ -28,11 +18,14 @@ class AnnItem extends React.Component {
               <figure className="ann-figure col-sm-12 col-md-5">
                   <a href="javascript:void(0)">
                       <img
-                          alt={ann.title}
-                          className="ann-image"
-                          src="http://goo.gl/FCYIKF" /*thanks to clickmeter gifs*/
+                        alt={ann.title}
+                        className="ann-image"
+                        src={this.getImgTest()}
                       />
-                      <figcaption>R$ {parseFloat(ann.price).prettyPrice(2, '.', ',')}</figcaption>
+                    <figcaption>
+                      {getText('unit-currencyBR') + " "}
+                      {numeral(ann.price).format('0,0.00')}
+                    </figcaption>
                   </a>
               </figure>
               <article className="ann-info col-sm-12 col-md-7" role="result">
@@ -45,22 +38,28 @@ class AnnItem extends React.Component {
                   <ul className="ann-info-cards">
                       <li className="info-card card-area">
                           <span className="icon sprt sprt-area"></span>
-                          <p>{ann.squareMeters} M²</p>
+                          <p>{ann.squareMeters} {getText('unit-squareMeters')}</p>
                       </li>
                       <li className="info-card card-beds">
                           <span className="icon sprt sprt-beds"></span>
-                          <p>{parseInt(ann.beds) > 1 ? (ann.beds + " quartos") : (ann.beds + " quarto") }</p>
+                          <p>{parseInt(ann.beds) > 1 ?
+                              (ann.beds + " " + getText('label-bedrooms')) :
+                              (ann.beds + " " + getText('label-bedroom')) }
+                          </p>
                       </li>
                       <li className="info-card card-bathroom">
                           <span className="icon sprt sprt-bathroom"></span>
-                          <p>{parseInt(ann.baths) > 1 ? (ann.baths + " banheiros") : (ann.baths + " banheiro") }</p>
+                          <p>{parseInt(ann.baths) > 1 ?
+                              (ann.baths + " " + getText('label-bathrooms')) :
+                              (ann.baths + " " + getText('label-bathroom')) }
+                          </p>
                       </li>
                       <li className="info-card card-link">
                           <a
                               href="javascript:void(0)"
                               className="btn btn-primary"
                               data-id={ann.id}
-                          >Visualizar anúncio</a>
+                          >{getText('label-viewAnn')}</a>
                       </li>
                   </ul>
               </article>

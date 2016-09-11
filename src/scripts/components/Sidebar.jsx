@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router';
 
+import getText from '../helpers/i18n'
+
 class Sidebar extends React.Component {
   render() {
     return (
@@ -13,7 +15,7 @@ class Sidebar extends React.Component {
                   >
                     <Link to="/announcements" title="Anúncios">
                       <span className="icon sprt sprt-building"></span>
-                      Anúncios
+                      {getText('announcements')}
                     </Link>
                   </li>
                   <li
@@ -22,10 +24,10 @@ class Sidebar extends React.Component {
                   >
                     <Link to="/announcements/new" title="Novo anúncio" onClick={e => {
                       e.preventDefault();
-                      alert('🏡 Spotippos diz:\n\n📢 Sorry! Essa feature é imaginária. ✋😞');
+                      alert(getText('default-sorryNewAnn'));
                     }}>
                       <span className="icon sprt sprt-plus"></span>
-                      Novo anúncio
+                      {getText('newAnnouncement')}
                     </Link>
                   </li>
               </ul>

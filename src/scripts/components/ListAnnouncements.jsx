@@ -1,6 +1,8 @@
 import React from 'react';
 import _ from 'lodash'
 
+import getText from '../helpers/i18n'
+
 import AnnItem from './AnnItem'
 
 class ListAnnouncements extends React.Component {
@@ -13,12 +15,12 @@ class ListAnnouncements extends React.Component {
 
     if (error) {
       return <p style={warningMsgStyle}>
-              Por favor, tente novamente. &nbsp;&nbsp; 😐
+              {getText('error-pleaseTryAgain')}
              </p>
     } else if (!_.size(anns)) {
       return <p style={warningMsgStyle}>
-        💩 &nbsp;&nbsp; Nenhum resultado de anúncio encontrado.
-      </p>
+              {getText('error-noAnnsFound')}
+             </p>
     } else {
       return (
         <ul className="results-anns">
