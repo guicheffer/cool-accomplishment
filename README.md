@@ -78,18 +78,22 @@ Observações
 
 O projeto está completamente responsivo porém faltando **BASTANTE** testes para que o deploy fique seguro antes de subir e que as funcionalidades sejam livres de bugs (sou um mero aprendiz em testes automatizados em frontend). Porém me preocupei bastante com a experiência do usuário na plataforma através do layout fornecido até que certo ponto poderíamos ainda mais preencher com informações relevantes que não virão, inicialmente, fazer parte do sistema. Portanto listei tecnicamente o que achei que poderia ser útil:
 
+- ~~Desculpe os commits pré-entrega, foi só por questão de deixar o entregável ainda mais interativo e conquistável!~~
+
 - Optei por utilizar as seguintes tecnologias abaixo (calma, explicarei o porquê 😝)
 
 	- React.js (from facebook)
 	- Redux.js (from React thing)
     - lodash for immutable objects
     - functional programming
-	- ... w/ es6 (using babel)
+    - UglifyJS
+    - ES6 Lint
+	- ... w/ es6 and es6Lint (using babel)
 	- Stylus
 	- ... PostCSS
     - ... OOCSS + Self organizing
-	- Webpack
-    - ~~Karma + Nightwatch.js~~
+	- Webpack as a module bundler
+    - Karma + Nightwatch.js
 	- ~~CDN (not settled up)~~
 
 - Primeiramente decidi utilizar as tecnologias em JS justamente pela questão da preferência e conforto em trabalhar no dia a dia com as mesmas por mais que já tenho experienciado frameworks como Angular 1/2 e Meteor.
