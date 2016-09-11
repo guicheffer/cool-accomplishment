@@ -75,6 +75,7 @@ $info-card-width = 25%
         font-size remify(23.1px)
         font-family 'Open Sans'
     .ann-info
+      background-color $white
       box-sizing border-box
       padding-left remify(2%)
       padding-top 2%
@@ -178,11 +179,12 @@ $info-card-width = 25%
 
 @media $media-query-tablet
   .container-results
+    background-color $page-box-results-tablet-background-color !important
     .ann-item
       .ann-figure
-        height 30vw
+        height 40vw
         .ann-image
-          min-height remify(300px)
+          min-height remify(400px)
       .ann-info
         .ann-description
           margin-bottom remify(70px)
@@ -199,7 +201,7 @@ $info-card-width = 25%
     .ann-item
       .ann-figure
         .ann-image
-          transform translateY(-40%)
+          transform translateY(-25%)
       .ann-info
         padding-top remify(20px)
         .info-card
