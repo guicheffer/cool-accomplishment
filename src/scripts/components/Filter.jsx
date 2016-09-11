@@ -10,7 +10,8 @@ class Filter extends React.Component {
     super(props);
     this.state = {
       ...state,
-      errorMsg: null
+      errorMsg: null,
+      justSearched: true
     }
   }
 
@@ -82,7 +83,8 @@ class Filter extends React.Component {
       ),
       valMax: handleOnlyNumbers(
         this.nodeValMax.value.replace(/\,|\.|\$|R|\s/gi, ''), filters.valMax
-      )
+      ),
+      freeText: this.nodeFreeText.value.replace(/`|'|"/gi, '')
     });
   }
 
@@ -92,7 +94,7 @@ class Filter extends React.Component {
 		return (
 				<section className="page-box col-xs-12 col-sm-12 col-md-4">
 					<div className="container container-filter" ref={node => {this.nodeScroll = node}}>
-						<h3 className="title">{getText('label-filterBy')}...</h3>
+						<h3 className="title">{getText('label-filterBy')}</h3>
             <p className="errorMsg">{this.state.errorMsg}</p>
 
 						<form
@@ -105,43 +107,52 @@ class Filter extends React.Component {
 						>
 							<fieldset className="form-row">
 								<div className="form-group form-field-id">
-										<label htmlFor="id">ID</label>
-										<input
-                      ref={node=>{this.nodeId = node}}
-                      tabIndex="1"
-                      onChange={this.handleFieldChange.bind(this)}
-                      onBlur={e=>{
-                        this.handleFiltersURL(e);
-                      }}
-                      onKeyDown={e=>{
-                        if (e.which===13){
-                          if (filters.id!=='')
-                          this.props.handleSearchID(filters.id)
+									<label htmlFor="id">ID</label>
+									<input
+                    ref={node=>{this.nodeId = node}}
+                    tabIndex="1"
+                    onChange={e=>{
+                      this.handleFieldChange();
+                      this.setState({justSearched: false});
+                    }}
+                    onBlur={e=>{
+                      this.handleFiltersURL(e);
+                    }}
+                    onKeyDown={e=>{
+                      if (e.which===13){
+                        if (filters.id!=='') {
+                          this.props.handleSearchID(filters.id);
+                          this.setState({justSearched: true});
                         }
-                      }}
-                      id="id" placeholder={getText('label-uniqueId')}
-                      value={filters.id} type="text"
-                    />
+                      }
+                    }}
+                    id="id" placeholder={getText('label-uniqueId')}
+                    value={filters.id} type="text"
+                  />
 								</div>
 								<div className="form-group form-field-area">
-										<label htmlFor="area">{getText('label-area')}</label>
-										<input
-                      ref={node=>{this.nodeArea = node}}
-                      tabIndex="2"
-                      onChange={this.handleFieldChange.bind(this)}
-                      onBlur={e=>{
-                        this.handleFiltersURL(e);
-                      }}
-                      onKeyDown={e=>{this.handleKeyDownNumbers(e)}}
-                      id="area"
-                      placeholder={getText('in') + " " + getText('unit-currencyBR')}
-                      value={filters.area} type="tel"
-                    disabled={filters.id ? "disabled" : ""}
-                    />
+									<label htmlFor="area">{getText('label-area')}</label>
+									<input
+                    autoComplete="off"
+                    ref={node=>{this.nodeArea = node}}
+                    tabIndex="2"
+                    onChange={this.handleFieldChange.bind(this)}
+                    onBlur={e=>{
+                      this.handleFiltersURL(e);
+                    }}
+                    onKeyDown={e=>{this.handleKeyDownNumbers(e)}}
+                    id="area"
+                    placeholder={getText('in') + " " + getText('unit-currencyBR')}
+                    value={filters.area} type="tel"
+                  disabled={filters.id ? "disabled" : ""}
+                  />
 								</div>
 							</fieldset>
-              {filters.id ?
-                <p className="warning warning-enter form-row">
+              {filters.id && !this.state.justSearched ?
+                <p
+                  ref={node=>{this.nodeWarning = node;}}
+                  className="warning warning-enter form-row"
+                >
                   {getText('warning-databaseSearch')}
                   <br/>
                   {getText('warning-pressEnter')}
@@ -149,82 +160,100 @@ class Filter extends React.Component {
               }
 							<fieldset className="form-row">
 								<div className="form-group form-field-rooms">
-										<label htmlFor="rooms">{getText('label-bedrooms')}</label>
-										<input
-                      ref={node=>{this.nodeBeds = node}}
-                      tabIndex="3"
-                      onChange={this.handleFieldChange.bind(this)}
-                      onBlur={e=>{
-                        this.handleFiltersURL(e);
-                      }}
-                      onKeyDown={e=>{this.handleKeyDownNumbers(e)}}
-                      id="rooms" placeholder=""
-                      value={filters.beds} type="tel"
-                    disabled={filters.id ? "disabled" : ""}
-                    />
+									<label htmlFor="rooms">{getText('label-bedrooms')}</label>
+									<input
+                    autoComplete="off"
+                    ref={node=>{this.nodeBeds = node}}
+                    tabIndex="3"
+                    onChange={this.handleFieldChange.bind(this)}
+                    onBlur={e=>{
+                      this.handleFiltersURL(e);
+                    }}
+                    onKeyDown={e=>{this.handleKeyDownNumbers(e)}}
+                    id="rooms" placeholder=""
+                    value={filters.beds} type="tel"
+                  disabled={filters.id ? "disabled" : ""}
+                  />
 								</div>
 								<div className="form-group form-field-baths">
-										<label htmlFor="baths">{getText('label-bathrooms')}</label>
-										<input
-                      ref={node=>{this.nodeBaths = node}}
-                      tabIndex="4"
-                      onChange={this.handleFieldChange.bind(this)}
-                      onBlur={e=>{
-                        this.handleFiltersURL(e);
-                      }}
-                      onKeyDown={e=>{this.handleKeyDownNumbers(e)}}
-                      id="baths" placeholder=""
-                      value={filters.baths} type="tel"
-                    disabled={filters.id ? "disabled" : ""}
-                    />
+									<label htmlFor="baths">{getText('label-bathrooms')}</label>
+									<input
+                    autoComplete="off"
+                    ref={node=>{this.nodeBaths = node}}
+                    tabIndex="4"
+                    onChange={this.handleFieldChange.bind(this)}
+                    onBlur={e=>{
+                      this.handleFiltersURL(e);
+                    }}
+                    onKeyDown={e=>{this.handleKeyDownNumbers(e)}}
+                    id="baths" placeholder=""
+                    value={filters.baths} type="tel"
+                  disabled={filters.id ? "disabled" : ""}
+                  />
 								</div>
 							</fieldset>
 							<fieldset className="form-row">
 								<div className="form-group form-field-value between-count">
-										<label htmlFor="valMin">{getText('label-price')}</label>
-										<input
-                      ref={node=>{this.nodeValMin = node}}
-                      tabIndex="5"
-                      onChange={e => {
-                        this.handleFieldChange();
-                        this.compareMinMaxVals(e);
-                      }}
-                      onBlur={e=>{
-                        this.handleFiltersURL(e);
-                      }}
-                      onKeyDown={e=>{this.handleKeyDownNumbers(e)}}
-                      id="valMin" placeholder={getText('label-priceMin')}
-                      value={
-                        filters.valMin != 0 ?
-                        (getText('unit-currencyBR') + " " +
-                        numeral(filters.valMin).format('0,0')) : ""
-                      } type="tel"
-                    disabled={filters.id ? "disabled" : ""}
-                    />
-										<span className="icon itself"></span>
-										<input
-                      ref={node=>{this.nodeValMax = node}}
-                      tabIndex="6"
-                      onChange={e => {
-                        this.handleFieldChange();
-                        this.compareMinMaxVals(e);
-                      }}
-                      onBlur={e=>{
-                        this.handleFiltersURL(e);
-                      }}
-                      onKeyDown={e=>{this.handleKeyDownNumbers(e)}}
-                      id="valMax" placeholder={getText('label-priceMax')}
-                      value={
-                        filters.valMax !=0 ?
-                        (getText('unit-currencyBR') + " " +
-                        numeral(filters.valMax).format('0,0')) : ""
-                      } type="tel"
-                    disabled={filters.id ? "disabled" : ""}
-                    />
+									<label htmlFor="valMin">{getText('label-price')}</label>
+									<input
+                    autoComplete="off"
+                    ref={node=>{this.nodeValMin = node}}
+                    tabIndex="5"
+                    onChange={e => {
+                      this.handleFieldChange();
+                      this.compareMinMaxVals(e);
+                    }}
+                    onBlur={e=>{
+                      this.handleFiltersURL(e);
+                    }}
+                    onKeyDown={e=>{this.handleKeyDownNumbers(e)}}
+                    id="valMin" placeholder={getText('label-priceMin')}
+                    value={
+                      filters.valMin != 0 ?
+                      (getText('unit-currencyBR') + " " +
+                      numeral(filters.valMin).format('0,0')) : ""
+                    } type="tel"
+                  disabled={filters.id ? "disabled" : ""}
+                  />
+									<span className="icon itself"></span>
+									<input
+                    autoComplete="off"
+                    ref={node=>{this.nodeValMax = node}}
+                    tabIndex="6"
+                    onChange={e => {
+                      this.handleFieldChange();
+                      this.compareMinMaxVals(e);
+                    }}
+                    onBlur={e=>{
+                      this.handleFiltersURL(e);
+                    }}
+                    onKeyDown={e=>{this.handleKeyDownNumbers(e)}}
+                    id="valMax" placeholder={getText('label-priceMax')}
+                    value={
+                      filters.valMax !=0 ?
+                      (getText('unit-currencyBR') + " " +
+                      numeral(filters.valMax).format('0,0')) : ""
+                    } type="tel"
+                  disabled={filters.id ? "disabled" : ""}
+                  />
 								</div>
 							</fieldset>
               <fieldset className="form-row">
-								<div className="form-group form-field-rooms">
+								<div className="form-group group-100 form-field-free-text">
+                  <label htmlFor="freeText">{getText('label-freeText')}</label>
+                  <textarea
+                    ref={node=>{this.nodeFreeText = node}}
+                    onChange={this.handleFieldChange.bind(this)}
+                    onBlur={e=>{
+                      this.handleFiltersURL(e);
+                    }}
+                    rows="2"
+                    tabIndex="7"
+                    id="freeText"
+                    disabled={filters.id ? "disabled" : ""}
+                    placeholder={getText('label-freeTextPlaceholder') + "..."}
+                    value={filters.freeText}
+                  ></textarea>
                 </div>
               </fieldset>
 						</form>

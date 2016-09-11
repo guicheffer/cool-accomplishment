@@ -1,6 +1,7 @@
 import React from 'react';
 import _ from 'lodash'
 
+import replaceVal from '../helpers/partials/replaceVal'
 import getText from '../helpers/i18n'
 
 import AnnItem from './AnnItem'
@@ -67,6 +68,14 @@ class ListAnnouncements extends React.Component {
                      parseFloat(property.price) <= parseFloat(filters.valMax);
             })
           }
+          break;
+        case "freeText":
+          val = replaceVal(val);
+          console.log(val);
+          anns = _.filter(anns, property => {
+            return replaceVal(property.title).indexOf(val) !== -1 ||
+                   replaceVal(property.description).indexOf(val) !== -1;
+          })
           break;
         default:
           return false;

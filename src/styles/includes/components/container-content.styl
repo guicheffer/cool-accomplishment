@@ -79,10 +79,10 @@ $container-results-min-height = $sidebar-height
         display block
       input
         display inline-block
-        width 39%
+        width 45%
       .icon
         border-top solid 1px $gray-label
-        width 9%
+        width 3%
         display inline-block
         vertical-align middle
         margin 0
@@ -96,6 +96,13 @@ $container-results-min-height = $sidebar-height
   .page-box:last-child
     padding-left remify(20px)
     padding-right 0
+
+@media $media-query-weak-desktop-screen
+  .page-box
+    .form-row
+      .between-count
+        input
+          width 44% /*fix width on tablet devices (minor 1px)*/
 
 @media $media-query-tablet
   .wrapper-page

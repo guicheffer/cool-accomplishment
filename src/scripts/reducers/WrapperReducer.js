@@ -12,7 +12,8 @@ const INITIAL_STATE = {filters: {
   beds: "",
   baths: "",
   valMin: "",
-  valMax: ""
+  valMax: "",
+  freeText: ""
 }, annByID: { ann: [], loading: true, error: false }};
 
 export default function(state = INITIAL_STATE, action) {
@@ -24,7 +25,9 @@ export default function(state = INITIAL_STATE, action) {
         beds: handleOnlyNumbers(action.initialFilters.beds, ""),
         baths: handleOnlyNumbers(action.initialFilters.baths, ""),
         valMin: handleOnlyNumbers(action.initialFilters.valMin, ""),
-        valMax: handleOnlyNumbers(action.initialFilters.valMax, "")
+        valMax: handleOnlyNumbers(action.initialFilters.valMax, ""),
+        freeText: typeof action.initialFilters.freeText !== 'undefined' ?
+                  action.initialFilters.freeText.replace(/`|'|"/gi, '') : ""
       } };
     case CHANGE_FILTERS:
       return {
