@@ -12,6 +12,7 @@ const msgs = {
     'label-bedroom': 'Quarto',
     'label-bathrooms': 'Banheiros',
     'label-bathroom': 'Banheiro',
+    'label-filterBy': 'Filtrar por',
     'label-price': 'Valor',
     'label-priceMin': 'Mínimo',
     'label-priceMax': 'Máximo',
