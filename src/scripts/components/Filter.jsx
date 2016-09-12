@@ -59,6 +59,7 @@ class Filter extends React.Component {
       e.target.style.outline = this.getStyleError();
       this.setState({errorMsg: getText('error-onlyNumbers')});
     } else {
+      this.setState({justSearched: false});
       e.target.style.outline = '';
       this.setState({errorMsg: null});
     }
@@ -114,7 +115,6 @@ class Filter extends React.Component {
                     tabIndex="1"
                     onChange={e=>{
                       this.handleFieldChange();
-                      this.setState({justSearched: false});
                     }}
                     onBlur={e=>{
                       this.handleFiltersURL(e);
