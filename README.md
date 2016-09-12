@@ -98,7 +98,7 @@ O projeto está completamente responsivo porém faltando **BASTANTE** testes par
 	- ... PostCSS
     - ... OOCSS + Self organizing
 	- Webpack as a module bundler
-    - Karma + Nightwatch.js
+    - Nightwatch.js + ~~Karma~~
 	- ~~CDN (not settled up)~~
 
 - Primeiramente decidi utilizar as tecnologias em JS justamente pela questão da preferência e conforto em trabalhar no dia a dia com as mesmas por mais que já tenho experienciado frameworks como Angular 1/2 e Meteor.
@@ -108,6 +108,8 @@ O projeto está completamente responsivo porém faltando **BASTANTE** testes par
 - Stylus? AMO como é escrito...como eu disse: pura preferência; OOCSS? Comecei com a brincadeira na Folha de S. Paulo, viciei na maneira de como é escrito, apesar de preferir BEM como organização do CSS e achar que funciona melhor para compreensão.
 
 - Webpack pq é modinha. MENTIRA: a forma de como os pacotes são modularizados e compactados em um bundle realmente me convence a largar os _task runners_ e daí aprendi bastante a maneira de como o Webpack trabalha juntamente as suas rotinas e seus loaders.
+
+- Nighwatch.js foi pq eu já usava PhantomJS em outro projeto e essa biblioteca me ajudou a migrar a maneira de como é compilado...porém a sintaxe é bem similar e continou praticamente a mesma utilizando _Selenium_ como driver.
 
 - De qualquer forma, fica a dica pra desencargo 😝  rs:
 
