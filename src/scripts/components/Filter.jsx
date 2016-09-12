@@ -109,6 +109,7 @@ class Filter extends React.Component {
 								<div className="form-group form-field-id">
 									<label htmlFor="id">ID</label>
 									<input
+                    autoComplete="off"
                     ref={node=>{this.nodeId = node}}
                     tabIndex="1"
                     onChange={e=>{
