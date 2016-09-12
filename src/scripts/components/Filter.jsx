@@ -142,7 +142,7 @@ class Filter extends React.Component {
                     }}
                     onKeyDown={e=>{this.handleKeyDownNumbers(e)}}
                     id="area"
-                    placeholder={getText('in') + " " + getText('unit-currencyBR')}
+                    placeholder={getText('in') + " " + getText('unit-squareMeters')}
                     value={filters.area} type="tel"
                   disabled={filters.id ? "disabled" : ""}
                   />

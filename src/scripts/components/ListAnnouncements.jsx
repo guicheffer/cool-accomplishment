@@ -71,7 +71,7 @@ class ListAnnouncements extends React.Component {
           break;
         case "freeText":
           val = replaceVal(val);
-          console.log(val);
+          
           anns = _.filter(anns, property => {
             return replaceVal(property.title).indexOf(val) !== -1 ||
                    replaceVal(property.description).indexOf(val) !== -1;
