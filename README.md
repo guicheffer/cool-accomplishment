@@ -61,6 +61,8 @@ Testes
 -----
 
 Para rodar os testes em dev/prod:
+
+Isso já é rodado pelo `heroku/tests` antes de ser feito o deploy em produção seguindo a _task_ `npm run test:ci` do _package.json_.
 ```
 make test
 ```
@@ -112,12 +114,13 @@ O projeto está completamente responsivo porém faltando **BASTANTE** testes par
 
 Melhorias [o que não deu tempo lol]
 ---------
-* ~~Testes manuais~~ :ok_hand:
-* ~~Testes end-to-end~~ :ok_hand:
 * ~~Animações UI~~ :ok_hand:
 * ~~Sidebar flutuando~~ :ok_hand:
-* ~~Corrigir warnings React (Caso bem parecido: https://github.com/martyjs/marty/issues/336)~~ :ok_hand:
+* ~~Testes manuais~~ :ok_hand:
+* ~~Testes end-to-end~~ :ok_hand:
 * ~~Organização das layers do container principal~~ :ok_hand:
+* ~~Corrigir warnings React (Caso bem parecido: https://github.com/martyjs/marty/issues/336)~~ :ok_hand:
+* Inserir badges no `README.md` do repositório :hourglass_flowing_sand:
 * Refatoração do core em js :hourglass_flowing_sand:
 * Testes unitários :hourglass_flowing_sand:
 * Testes de UI (css) :hourglass_flowing_sand:
