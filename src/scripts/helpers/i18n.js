@@ -30,7 +30,7 @@ const msgs = {
     'error-noAnnsFound': '💩 Nenhum resultado de anúncio encontrado.',
     'warning-databaseSearch': '📸  A pesquisa por ID procura primeiramente' +
                               ' nos anúncios pré-indexados;',
-    'warning-pressEnter': '❗️ Pressione ⏎ <span>Enter</span> para pesquisar por ID no banco de dados.'
+    'warning-pressEnter': '❗️ Pressione ⏎ *Enter* para pesquisar por ID no banco de dados.'
   }
 };
 
