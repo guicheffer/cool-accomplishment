@@ -66,6 +66,7 @@ class Filter extends React.Component {
   }
 
   handleFiltersURL(e) {
+    this.setState({justSearched: false});
     e.target.style.outline = '';
     this.setState({errorMsg: null});
     this.props.updateFiltersURL(this.props.filters);
@@ -122,9 +123,13 @@ class Filter extends React.Component {
                     onKeyDown={e=>{
                       if (e.which===13){
                         if (filters.id!=='') {
+                          e.target.style.outline = '';
+                          this.setState({errorMsg: null});
                           this.props.handleSearchID(filters.id);
                           this.setState({justSearched: true});
                         }
+                      } else {
+                        this.handleKeyDownNumbers(e);
                       }
                     }}
                     id="id" placeholder={getText('label-uniqueId')}
