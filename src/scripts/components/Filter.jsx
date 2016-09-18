@@ -66,7 +66,6 @@ class Filter extends React.Component {
   }
 
   handleFiltersURL(e) {
-    this.setState({justSearched: false});
     e.target.style.outline = '';
     this.setState({errorMsg: null});
     this.props.updateFiltersURL(this.props.filters);
@@ -115,6 +114,7 @@ class Filter extends React.Component {
                     ref={node=>{this.nodeId = node}}
                     tabIndex="1"
                     onChange={e=>{
+                      this.setState({justSearched: false});
                       this.handleFieldChange();
                     }}
                     onBlur={e=>{
