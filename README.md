@@ -1,10 +1,8 @@
-# Spotippos
+# Cool accomplishment
 
-Teste em produção http://spotippos-guicheffer.herokuapp.com/ (please, non-ssl!)
+Teste em produção http://cool-accomplishment-guicheffer.herokuapp.com/ (please, non-ssl!)
 
-Resolução do teste https://github.com/VivaReal/code-challenge/blob/master/frontend.md
-
-Repositório https://github.com/guicheffer/spotippos
+Repositório https://github.com/guicheffer/cool-accomplishment
 
 Coisinhas bem importantes:
 -------------------------
@@ -36,12 +34,12 @@ ou
 npm run start:dev
 ```
 
-Agora acesse http://localhost:3000/ para testar a área _front_ do Spotippos e realizar seu sonho de encontrar um belo imóvel :)
+Agora acesse http://localhost:3000/ para testar a área _front_ do Cool Accomplishment e realizar seu sonho de encontrar um belo imóvel :)
 
 Deploy
 ------
 
-Se você deseja apenas visualizar a cara do _site_ funcionando, entre em: http://spotippos-guicheffer.herokuapp.com/ (no ssl certificate) ...
+Se você deseja apenas visualizar a cara do _site_ funcionando, entre em: http://cool-accomplishment-guicheffer.herokuapp.com/ (no ssl certificate) ...
 
 ...ele foi compilado utilizando o seguinte comando(que se rodado, ele compilará os arquivos e dependências em *js* e *css* diretamente pra prod e servirá a pasta `build/` ):
 ```
@@ -125,8 +123,7 @@ Melhorias [o que não deu tempo lol]
 * ~~Testes end-to-end~~ :ok_hand:
 * ~~Organização das layers do container principal~~ :ok_hand:
 * ~~Corrigir warnings React (Caso bem parecido: https://github.com/martyjs/marty/issues/336)~~ :ok_hand:
+* ~~Testes unitários :hourglass_flowing_sand:
+* Testes de UI (css) :hourglass_flowing_sand:~~
 * Inserir badges no `README.md` do repositório :hourglass_flowing_sand:
 * Refatoração do core em js :hourglass_flowing_sand:
-* Testes unitários :hourglass_flowing_sand:
-* Testes de UI (css) :hourglass_flowing_sand:
-* Testes de stress/sobrecarga (frontend) :-1:
